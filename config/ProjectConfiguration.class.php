@@ -3,6 +3,8 @@
 require_once dirname(__FILE__).'/../lib/vendor/symfony/lib/autoload/sfCoreAutoload.class.php';
 sfCoreAutoload::register();
 
+require_once(dirname(__FILE__).'/../config/PrivateConfiguration.class.php');
+
 class ProjectConfiguration extends sfProjectConfiguration
 {
   public function setup()
