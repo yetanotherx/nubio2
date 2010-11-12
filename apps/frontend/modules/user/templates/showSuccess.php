@@ -51,7 +51,7 @@ slot( 'header', $header );
 <ul>
 <?php
 
-if( $nubio_guard->getId() == $sf_user->getGuardUser()->getId() ) {
+if( $sf_user->isAuthenticated() && $nubio_guard->getId() == $sf_user->getGuardUser()->getId() ) {
 	echo '<li>' . link_to('Account settings', 'userreg/edit?id=' . $nubio_helper->getId()) . '</li>'; 
 }
 echo '<li>' . link_to('User contributions', '@user_contribs_username?id=' . $nubio_helper->getId()) . '</li>';
