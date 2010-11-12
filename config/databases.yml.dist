@@ -1,0 +1,13 @@
+test:
+  doctrine:
+    class: sfDoctrineDatabase
+    param:
+      dsn: 'mysql:host=host;dbname=databasename'
+
+all:
+  doctrine:
+    class: sfDoctrineDatabase
+    param:
+      dsn: 'mysql:host=host;dbname=databasename'
+      username: username
+      password: password

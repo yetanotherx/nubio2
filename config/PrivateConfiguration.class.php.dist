@@ -1,0 +1,15 @@
+<?php
+
+class PrivateConfiguration
+{
+  static public function setup()
+  {
+     
+    $GLOBALS['allowed_ips'] = array('127.0.0.1', '::1' );
+
+  	sfConfig::set( 'nubio_api_csrf', '32 character hex string goes here' );
+  	sfConfig::set( 'nubio_backend_csrf', '32 character hex string goes here' );
+  	sfConfig::set( 'nubio_frontend_csrf', '32 character hex string goes here' );
+  }
+
+}
