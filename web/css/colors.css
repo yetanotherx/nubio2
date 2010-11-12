@@ -1,0 +1,22 @@
+h2.green {
+	background:#cef2e0; 
+	border:1px solid #a3bfb1; 
+	color:#000; 
+}
+
+h2.red {
+	background:#F99; 
+	border:1px solid #a3bfb1; 
+	color:#000;
+}
+
+h2.teal {
+	background:#9CC; 
+	border:1px solid #a3bfb1; 
+	color:#000;
+}
+
+.error_list {
+	color: red;
+}
+

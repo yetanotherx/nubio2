@@ -1,0 +1,15 @@
+show:
+  is_secure: false
+index:
+  is_secure: false
+source:
+  is_secure: false
+search:
+  is_secure: false
+random:
+  is_secure: false
+history:
+  is_secure: false
+ 
+all:
+  is_secure: true

@@ -1,0 +1,23 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/11-App
+
+# default values
+all:
+  max_topics_per_category_on_homepage: 10
+  max_topics_per_category_on_category: 20
+  max_sidebar_topics: 5
+  max_revisions_on_revision: 15
+  max_categories_on_sidebar: 7
+  max_categories_on_homepage: 5
+  max_revisions_per_user_on_contribs: 50
+  max_users_on_user: 50
+  max_revisions_per_user_on_contribs: 50
+  max_categories_on_category_index: 30
+  sf_guard_plugin:
+    success_signout_url:     topic/index
+    signin_form: sfGuardFormSigninExt
+
+sfApplyPlugin:
+  from:
+    email: "nubio@toolserver.org"
+    fullname: "Nubio"

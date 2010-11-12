@@ -1,0 +1,151 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/10-Routing
+
+#User account routes
+userreg:
+  class:   sfDoctrineRouteCollection
+  options: { model: NubioHelper, with_show: false }
+
+userreg_approve:
+  url: /userreg/approve/:id/*
+  class:    sfDoctrineRoute
+  options:  { model: NubioHelper, type: object }
+  param: { module: userreg, action: approve }
+
+userreg_reset:
+  url: /userreg/reset
+  param: { module: userreg, action: reset }
+
+userreg_resetrequest:
+  url: /userreg/reset-request
+  param: { module: userreg, action: resetRequest }
+
+sf_guard_password:
+  url: /userreg/reset-request
+  param: { module: userreg, action: resetRequest }
+
+userreg_validate:
+  url: /userreg/confirm/:validate
+  param: { module: userreg, action: confirm }
+
+#User action
+user_contribs_username:
+  url:      /user/contribs/:id
+  class:    sfDoctrineRoute
+  param:    { module: user, action: contribs }
+  options:  { model: NubioHelper, type: object, method_for_query: routingQuery }
+  requirements:
+    sf_method: [get]
+    id: \d+
+    
+user_username:
+  url:      /user/:id
+  class:    sfDoctrineRoute
+  param:    { module: user, action: show }
+  options:  { model: NubioHelper, type: object, method_for_query: routingQuery }
+  requirements:
+    sf_method: [get]
+    id: \d+
+
+user:
+  url:      /user
+  class:    sfDoctrineRoute
+  param:    { module: user, action: index }
+  options:  { model: NubioHelper, type: object, method_for_query: routingQuery }
+  requirements:
+    sf_method: [get]
+
+#Revision action
+revision_diff:
+  url:      /revision/:oldid/:id
+  class:    sfDoctrineRoute
+  param:    { module: revision, action: diff }
+  options:  { model: NubioRevision, type: object, method_for_query: routingQuery }
+  requirements:
+    id: \d+
+    sf_method: [get]
+
+revision_id:
+  url:      /revision/:id
+  class:    sfDoctrineRoute
+  param:    { module: revision, action: show }
+  options:  { model: NubioRevision, type: object, method_for_query: routingQuery }
+  requirements:
+    id: \d+
+    sf_method: [get]
+
+revision:
+  url:      /revision
+  class:    sfDoctrineRoute
+  param:    { module: revision, action: index }
+  options:  { model: NubioRevision, type: object }
+  requirements:
+    sf_method: [get]
+
+#Category action
+category_id:
+  url:      /category/:id
+  class:    sfDoctrineRoute
+  param:    { module: category, action: show }
+  options:  { model: NubioCategory, type: object }
+  requirements:
+    id: \d+
+    sf_method: [get]
+
+#This is deprecated, do not use!
+category:
+  url:      /category/:name
+  class:    sfDoctrineRoute
+  param:    { module: category, action: show }
+  options:  { model: NubioCategory, type: object }
+
+category_index:
+  url:      /category
+  class:    sfDoctrineRoute
+  param:    { module: category, action: index }
+  options:  { model: NubioCategory, type: object }
+
+#Topic action
+topic_random:
+  url:   /random
+  param: { module: topic, action: random }
+
+topic_search:
+  url:   /search
+  param: { module: topic, action: search }
+
+topic:
+  class:   sfDoctrineRouteCollection
+  options: { model: NubioTopic, with_show: false }
+
+topic_id_history:
+  url: /topic/:id/history/*
+  class: sfDoctrineRoute
+  options: { model: NubioTopic, type: object, method_for_query: routingQuery }
+  param: { module: topic, action: history }
+  requirements:
+    id: \d+
+    sf_method: [get]
+
+topic_id_source:
+  url: /topic/:id/source/*
+  class: sfDoctrineRoute
+  options: { model: NubioTopic, type: object, method_for_query: routingQuery }
+  param: { module: topic, action: source }
+  requirements:
+    id: \d+
+    sf_method: [get]
+
+topic_id:
+  url: /topic/:id/*
+  class: sfDoctrineRoute
+  options: { model: NubioTopic, type: object, method_for_query: routingQuery }
+  param: { module: topic, action: show }
+  requirements:
+    id: \d+
+    sf_method: [get]
+  
+#Redirect to topic action
+homepage:
+  url:   /
+  param: { module: topic, action: index }

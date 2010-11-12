@@ -1,0 +1,42 @@
+NubioCategory:
+  actAs:
+    Timestampable: ~
+    Sluggable:
+      fields: [name]
+  columns:
+    name: { type: string(255), notnull: true, unique: true }
+
+NubioHelper:
+  actAs: { Timestampable: ~ }
+  columns:
+    wikiname: { type: string(255), notnull: true }
+    doctrine_uid: { type: integer, notnull: true }
+    is_blocked: { type: integer(1), notnull: true, default: 0 }
+    is_approved: { type: integer(1), notnull: true, default: 0 }
+    token: { type: string(32) }
+  relations:
+    sfGuardUser: { local: doctrine_uid, foreign: id, foreignAlias: NubioHelperGuard }
+
+NubioRevision:
+  actAs: { Timestampable: ~ }
+  columns:
+    helper_id:      { type: integer, notnull: true }
+    topic_id:      { type: integer }
+    text:      { type: blob(), notnull: true }
+    comment: { type: string(255) }
+    props:      { type: blob() }
+  relations:
+    NubioHelper: { local: helper_id, foreign: id, foreignAlias: NubioRevisions }
+
+NubioTopic:
+  actAs: { Timestampable: ~ }
+  columns:
+    summary:       { type: string(255), notnull: true }
+    keywords:      { type: blob() }
+    token:         { type: string(255), notnull: true }
+    revision_id:   { type: integer(8), notnull: true }
+    category_id:   { type: integer(8), notnull: true }
+    is_deleted:    { type: integer(1), notnull: true, default: 0 }
+  relations:
+    NubioCategory: { local: category_id, foreign: id, foreignAlias: NubioTopics }
+    NubioRevision: { local: revision_id, foreign: id, foreignAlias: NubioTopics }

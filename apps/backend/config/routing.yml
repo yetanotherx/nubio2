@@ -1,0 +1,52 @@
+nubio_revision:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                NubioRevision
+    module:               revision
+    prefix_path:          /revision
+    column:               id
+    with_wildcard_routes: true
+
+nubio_helper:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                NubioHelper
+    module:               helper
+    prefix_path:          /helper
+    column:               id
+    with_wildcard_routes: true
+
+nubio_category:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                NubioCategory
+    module:               category
+    prefix_path:          /category
+    column:               id
+    with_wildcard_routes: true
+
+nubio_topic:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                NubioTopic
+    module:               topic
+    prefix_path:          /topic
+    column:               id
+    with_wildcard_routes: true
+
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/10-Routing
+
+# default rules
+homepage:
+  url:   /
+  param: { module: topic, action: index }
+
+# generic rules
+# please, remove them by adding more specific rules
+default_index:
+  url:   /:module
+  param: { action: index }
+
+default:
+  url:   /:module/:action/*

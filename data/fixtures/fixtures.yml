@@ -1,0 +1,62 @@
+NubioCategory:
+  general:
+    name: General
+  wikitext:
+    name: Wikitext
+
+sfGuardUser:
+  User_admin:
+    email_address:  nubio@toolserver.org
+    username:       admin
+    password:       <?php echo trim( file_get_contents( sfConfig::get('sf_config_dir') . '/admin_pass.txt' ) . "\n" ?>
+    is_super_admin: true
+   
+NubioHelper:
+  admin:
+    wikiname: Administrator
+    sfGuardUser: User_admin
+    is_approved: 1
+
+NubioRevision:
+  revision1:
+    NubioHelper: admin
+    topic_id: 1
+    text: Yes!
+    comment: add topic
+    props: a:0:{}
+  revision2:
+    NubioHelper: admin
+    topic_id: 2
+    text: No!
+    comment: add topic
+    props: a:0:{}
+<?php for ($i = 3; $i <= 50; $i++): ?>
+  revision<?php echo $i ?>:
+    NubioHelper: admin
+    topic_id: <?php echo $i . "\n" ?>
+    comment: add topic
+    text: Text
+    props: a:0:{}
+<?php endfor ?>
+
+NubioTopic:
+  topic1:
+    summary: Will Nubio Work?
+    keywords: test
+    token: topic1
+    NubioRevision: revision1
+    NubioCategory: general
+  topic2:
+    summary: Will it work ever?
+    keywords: test
+    token: topic2
+    NubioRevision: revision2
+    NubioCategory: wikitext
+<?php for ($i = 3; $i <= 50; $i++): ?>
+  topic_<?php echo $i ?>:
+    summary: <?php echo rand( 0, 14858 ) . "\n" ?>
+    keywords: test
+    token: topic<?php echo $i."\n" ?>
+    NubioRevision: revision<?php echo $i."\n" ?>
+    NubioCategory: general
+<?php endfor ?>

@@ -1,0 +1,29 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           NubioHelper
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          nubio_helper
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:    
+        display: [=id, wikiname, doctrine_uid, is_blocked, is_approved]
+        batch_actions:
+          _delete:    ~
+          approve:     ~
+        object_actions:
+          approve:     ~
+          _edit:      ~
+          _delete:    ~
+      filter:  ~
+      form:    ~
+      edit:    ~
+      new:     ~

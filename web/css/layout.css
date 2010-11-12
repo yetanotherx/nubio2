@@ -1,0 +1,165 @@
+html {
+	background: none;
+}
+
+body {
+	background-image:url("http://toolserver.org/~soxred93/images/bgpattern.png");
+	background-attachment:fixed;
+}
+
+.wrapper {
+	background:none;
+	margin:0 auto;
+	text-align:left;	
+	width:75%;
+}
+
+.header_bar {
+	padding: 4px 20px 4px 20px;
+	border: 1px solid #1234aa;
+	border-bottom: 2px solid #666666;
+	border-top: none;
+	width:100%;
+	background-color: #676;
+	color: #EEE;
+}
+
+div.main_content {
+	background: none;
+	padding: 20px;
+	width: 100%; 
+	border: 1px solid #1234aa; 
+	border-top:none; 
+	border-bottom:none; 
+	background-color: #ffe;
+}
+
+table.content_table {
+	vertical-align: top;
+	width: 100%;
+	border-spacing: 10px;
+	border-collapse: separate;
+}
+
+td.content_box {
+	padding: 6px;
+	background-color: #F0FFF0; 
+	border: 1px solid #8888aa; 
+	border-right-width:4px; 
+	border-bottom-width:4px;
+	vertical-align: top;
+}
+
+td.nav_box {
+	width: 25%;
+}
+
+td.main_box {
+	width: 75%;
+}
+
+h2.head {
+	margin:0; 
+	font-size:120%; 
+	font-weight:bold; 
+	text-align:left; 
+	padding:0.2em 0.4em;
+	vertical-align: top;
+	margin-bottom:10px;
+}
+
+div.footer {
+	padding: 2px 20px 2px 20px;
+	border: 1px solid #1234aa;
+	border-top: none;
+	width:100%;
+	background-color: #676;
+	color: #EEE;
+	vertical-align: top;
+	line-height: 150%;
+	position: relative;
+	font-size: 115%;
+}
+
+div.footer_left {
+	left: 5px;
+	width: 60%;
+}
+div.footer_right {
+	position: absolute;
+	right: 5px;
+	width: 25%;
+	text-align: right;
+}
+
+div.pagination_foot {
+	vertical-align:text-middle;
+	line-height: 200%;
+}
+
+td {
+	padding: .1em 1em .1em
+}
+
+.wikitable,
+.prettytable {
+    margin: 1em 1em 1em 0;
+    background: #f9f9f9;
+    border: 1px #aaa solid;
+}
+.wikitable th, .wikitable td,
+.prettytable th, .prettytable td {
+    border: 1px #aaa solid;
+    padding: 0.2em;
+}
+.wikitable th,
+.prettytable th {
+    background: #f2f2f2;
+    text-align: center;
+}
+
+pre {
+    border: 1pt dashed black;
+    font-size: 10pt;
+    overflow: auto;
+    padding: 10px;
+	background : white;
+}
+
+p.center {
+	text-align:center;
+    margin-top:0px;
+    margin-bottom:0px;
+    padding:0px;
+}
+
+div.footer hr { /* So we can get a full footer */
+	display: block; 
+	clear: both; 
+	margin: -0.66em 0;
+	visibility: hidden;
+}
+  
+.wikitable,
+.prettytable {
+    margin: 1em 1em 1em 0;
+}
+.wikitable th, .wikitable td,
+.prettytable th, .prettytable td {
+    border: 1px #aaa solid;
+    padding: 0.5em;
+    background: #f9f9f9;
+}
+.wikitable th,
+.prettytable th {
+    background: #f2f2f2;
+    text-align: center;
+}
+
+table.topic_form li {
+	display: inline;
+}
+table.topic_form tfoot td {
+	text-align: right;
+	border: 0;
+}

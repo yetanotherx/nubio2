@@ -1,0 +1,54 @@
+NubioCategory:
+  general:
+    name: General
+  wikitext:
+    name: Wikitext
+
+NubioHelper:
+  admin:
+    name: Admin
+    wikiname: X!
+    email: void
+    pass: void
+    is_approved: 1
+
+NubioTopic:
+  firsttopic:
+    summary: Will Nubio Work?
+    keywords: test
+    token: topic1
+    revision_id: 1
+    category_id: 1
+  secondtopic:
+    summary: Will it work ever?
+    keywords: test
+    token: topic2
+    revision_id: 2
+    category_id: 2
+<?php for ($i = 3; $i <= 50; $i++): ?>
+  topic_<?php echo $i ?>:
+    summary: <?php echo rand( 0, 14858 ) . "\n" ?>
+    keywords: test
+    token: topic<?php echo $i."\n" ?>
+    revision_id: <?php echo $i."\n" ?>
+    category_id: 1
+<?php endfor ?>
+
+NubioRevision:
+  revision1:
+    helper_id: 1
+    topic_id: 1
+    text: Yes!
+    props: null switch this to null
+  revision2:
+    helper_id: 1
+    topic_id: 2
+    text: No!
+    props: null switch this to null
+<?php for ($i = 3; $i <= 50; $i++): ?>
+  revision<?php echo $i ?>:
+    helper_id: 1
+    topic_id: <?php echo $i . "\n" ?>
+    text: Text
+    props: null switch this to null
+<?php endfor ?>

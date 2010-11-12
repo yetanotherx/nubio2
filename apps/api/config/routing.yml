@@ -1,0 +1,86 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/10-Routing
+
+user_contribs:
+  url:   /:format/user/contribs/:id/*
+  param: { module: user, action: contribs, format: xmlfm }
+  requirements:
+    id: \d+
+    
+user_show:
+  url:   /:format/user/show/:id/*
+  param: { module: user, action: show, format: xmlfm }
+  requirements:
+    id: \d+
+
+user_index:
+  url:   /:format/user/*
+  param: { module: user, action: index, format: xmlfm }
+
+revision_diff:
+  url:   /:format/revision/diff/:oldid/:id/:type/*
+  param: { module: revision, action: diff, format: xmlfm }
+  requirements:
+    id: \d+
+    oldid: \d+
+
+revision_show:
+  url:   /:format/revision/show/:id/*
+  param: { module: revision, action: show, format: xmlfm }
+  requirements:
+    id: \d+
+
+revision_index:
+  url:   /:format/revision/*
+  param: { module: revision, action: index, format: xmlfm }
+
+category_show:
+  url:   /:format/category/show/:id/*
+  param: { module: category, action: show, format: xmlfm }
+  requirements:
+    id: \d+
+
+category_index:
+  url:   /:format/category/*
+  param: { module: category, action: index, format: xmlfm }
+
+topic_random:
+  url:   /:format/topic/random/*
+  param: { module: topic, action: random, format: xmlfm }
+
+topic_search:
+  url:   /:format/topic/search/:query/*
+  param: { module: topic, action: search, format: xmlfm }
+
+topic_history:
+  url:   /:format/topic/history/:id/*
+  param: { module: topic, action: history, format: xmlfm }
+  requirements:
+    id: \d+
+
+topic_show:
+  url:   /:format/topic/show/:id/*
+  param: { module: topic, action: show, format: xmlfm }
+  requirements:
+    id: \d+
+
+topic_index:
+  url:   /:format/topic/*
+  param: { module: topic, action: index, format: xmlfm }
+
+homepage:
+  url:   /
+  param: { module: topic, action: help, sf_format: xmlfm }
+
+format_homepage:
+  url:   /:format
+  param: { module: topic, action: help }
+
+# generic rules
+# please, remove them by adding more specific rules
+#default_index:
+#  url:   /:module.:sf_format
+#  param: { action: index, sf_format: xmlfm }
+
+#default:
+#  url:   /:module/:action/*
