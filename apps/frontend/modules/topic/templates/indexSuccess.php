@@ -13,13 +13,13 @@ foreach( $category_pager->getResults() as $nubio_category) {
 	
 	if( !count( $nubio_topics ) ) continue;
 
-	echo sprintf( '<h3>%s</h3>', link_to( $nubio_category, 'category', $nubio_category ) );
+	echo sprintf( '<h3>%s</h3>', link_to( $nubio_category, 'category_id', $nubio_category ) );
 	
 	include_partial('topic/list', array( 'nubio_topics' => $nubio_topics, 'nubio_category' => $nubio_category ) );
 
 	$count = $nubio_category->getTopicCountFromCategoryID( $nubio_category->getId() ); 
 	if ( ( $count - sfConfig::get('app_max_topics_per_category_on_homepage') ) > 0 ) {
-		echo 'See ' . link_to($count, 'category', $nubio_category) . ' more...';
+		echo 'See ' . link_to($count, 'category_id', $nubio_category) . ' more...';
 	}	
 }
 
