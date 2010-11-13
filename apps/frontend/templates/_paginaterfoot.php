@@ -1,11 +1,11 @@
 <?php if ($pager->haveToPaginate()): ?>
   <div class="pagination_foot">
     <a href="?page=1">
-      <img src="http://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Go-first.svg/30px-Go-first.svg.png" alt="First page" title="First page" />
+      <?php echo image_tag(sfConfig::get('sf_admin_module_web_dir').'/images/first.png', array('alt' => 'First page', 'title' => 'First page' ) ) ?>
     </a>
  
     <a href="?page=<?php echo $pager->getPreviousPage() ?>">
-      <img src="http://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Go-previous.svg/30px-Go-previous.svg.png" alt="Previous page" title="Previous page" />
+      <?php echo image_tag(sfConfig::get('sf_admin_module_web_dir').'/images/previous.png', array('alt' => 'Previous page', 'title' => 'Previous page' ) ) ?>
     </a>
  
     <?php foreach ($pager->getLinks() as $page): ?>
@@ -17,11 +17,11 @@
     <?php endforeach; ?>
  
     <a href="?page=<?php echo $pager->getNextPage() ?>">
-      <img src="http://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Go-next.svg/30px-Go-next.svg.png" alt="Next page" title="Next page" />
+      <?php echo image_tag(sfConfig::get('sf_admin_module_web_dir').'/images/next.png', array('alt' => 'Next page', 'title' => 'Next page' ) ) ?>
     </a>
  
     <a href="?page=<?php echo $pager->getLastPage() ?>">
-      <img src="http://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Go-last.svg/30px-Go-last.svg.png" alt="Last page" title="Last page" />
+      <?php echo image_tag(sfConfig::get('sf_admin_module_web_dir').'/images/last.png', array('alt' => 'Last page', 'title' => 'Last page' ) ) ?>
     </a>
   </div>
 <?php endif; ?>

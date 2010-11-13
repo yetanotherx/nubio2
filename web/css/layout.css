@@ -93,6 +93,7 @@ div.footer_right {
 }
 
 div.pagination_foot {
+	text-align: right;
 	vertical-align:text-middle;
 	line-height: 200%;
 }

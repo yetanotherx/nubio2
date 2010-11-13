@@ -16,7 +16,7 @@ slot( 'header', $header );
 
 ?>
 
-<table class="prettytable">
+<table class="prettytable" width="100%">
   <tbody>
     <tr>
       <th>Category:</th>

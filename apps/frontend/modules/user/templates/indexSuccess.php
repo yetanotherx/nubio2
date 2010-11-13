@@ -7,7 +7,7 @@ use_helper('Text');
 
 ?>
 
-<table class="prettytable">
+<table class="prettytable" width="100%">
 	<thead>
 		<tr>
 		<th>#</th>

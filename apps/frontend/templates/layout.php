@@ -117,10 +117,10 @@ use_javascript('search.js');
 				
 				<?php echo link_to( 'View Source', 'http://code.google.com/p/nubio/source/browse/trunk' ); ?><br />
 				
-				<a href="http://validator.w3.org/check?uri=referer"><img src="/~soxred93/images/xhtml.png" alt="Valid XHTML 1.0 Transitional" height="31" width="88" /></a>
-				<a href="http://anybrowser.org/campaign"><img src="/~soxred93/images/anybrowser.png" alt="AnyBrowser compliant" /></a>
-				<a href="http://toolserver.org"><img src="/~soxred93/images/toolserver.png" alt="Powered by WMF Toolserver" /></a>
-				<a href="http://symfony-project.org"><img src="/~soxred93/images/symfony.png" alt="Powered by symfony" /></a>
+				<a href="http://validator.w3.org/check?uri=referer"><img src="<?php echo image_path( 'xhtml.png' ) ?>" alt="Valid XHTML 1.0 Transitional" height="31" width="88" /></a>
+				<a href="http://anybrowser.org/campaign"><img src="<?php echo image_path( 'anybrowser.png' ) ?>" alt="AnyBrowser compliant" /></a>
+				<a href="http://toolserver.org"><img src="<?php echo image_path( 'toolserver.png' ) ?>" alt="Powered by WMF Toolserver" /></a>
+				<a href="http://symfony-project.org"><img src="<?php echo image_path( 'symfony.png' ) ?>" alt="Powered by symfony" /></a>
 			
 			</div>
 			
