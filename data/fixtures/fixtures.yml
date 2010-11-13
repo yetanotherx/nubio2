@@ -1,3 +1,254 @@
+<?php
+
+$revision = array(
+  array('rev_id'=>4,'rev_page'=>2,'rev_text'=>'The search index is updated about every thirty hours ([http://lists.wikimedia.org/pipermail/wikitech-l/2006-November/027338.html mailing list]). Recent changes are not reflected until the next time the search index is updated. 
+
+As an alternative to Wikipedia\'s search function, you can use a the Google search engine. Simply append <i>site:en.wikipedia.org</i> to your query to search the English Wikipedia. As for the Go feature, article names are case sensitive.  The [[m:Help:Go button|\"go\" button]] usually masks this, but if an article name includes a mixture of capitalized and uncapitalized words a [[Wikipedia:Redirect|redirect]] is necessary.
+
+','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420005712,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>5,'rev_page'=>3,'rev_text'=>'If all the links in the articles suddenly become underlined (or the opposite), it\'s probably because your browser failed to load one of the stylesheets. Do a forced reload or [[Wikipedia:bypass your cache|bypass your cache]].','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420005803,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>6,'rev_page'=>4,'rev_text'=>'If you changed to another skin and cannot change back, use [http://en.wikipedia.org/wiki/Special:Preferences?useskin=monobook this link] and try to change the skin. If this does not fix the problem, clear all cookies in your browser and refresh.','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420005836,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>7,'rev_page'=>5,'rev_text'=>'See [[Help:Starting a new page]]. You might also want to take a look at [[Wikipedia:Your first article]] and [[Wikipedia:How to write a great article]].
+
+You need to have a Wikipedia account to create a new article.','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420005859,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>8,'rev_page'=>6,'rev_text'=>'See [[Wikipedia:Citing Wikipedia]].','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420005930,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>9,'rev_page'=>7,'rev_text'=>'Any article on Wikipedia is written by multiple editors, not just one. If you click on the \"[[Help:Page history|history]]\" tab on the top of the article, there is a list of all contributors to the particular article. If you want to cite a Wikipedia article, see [[Wikipedia:Citing Wikipedia]].','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420005950,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>10,'rev_page'=>8,'rev_text'=>'See [[Wikipedia:Changing username]].','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420010010,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>11,'rev_page'=>9,'rev_text'=>'Go to [[Special:Preferences]]. In the \'\'Editing\'\' section untick \"Use external editor by default\".','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420010039,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>12,'rev_page'=>10,'rev_text'=>'The best way to find out is to look on the corresponding [[WP:AFD|Articles for Deletion]] page. If it isn\'t there, look at the [[Special:Log/delete|deletion log]] for reasons (type the name of the article in the Title box).
+
+Also see [[Wikipedia:Why was my page deleted?]] for more ideas.','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420010059,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>13,'rev_page'=>11,'rev_text'=>'There may be several reasons for this - if you feel you\'ve been blocked wrongly, then put the {{tl|unblock}} tag on your page and an admininstrator will take a look. It may be due to an automatic block by the software. Please be sure to include your IP address.','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420010138,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>14,'rev_page'=>12,'rev_text'=>'No. The feature to count how many times a page has been visited has been turned off for performance reasons.  For more details please see [[Wikipedia:Technical FAQ#Can_I_add_a_page_hit_counter_to_a_Wikipedia_page?]]. You can, however, see how many people edit a page by clicking on the \"history\" page.
+
+An alternative to see viewing statistics is WikiCharts, see [[Special:Statistics#Other_statistics]]. You can also see articles with the most edits at [[Special:Mostrevisions]].','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420010210,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>15,'rev_page'=>13,'rev_text'=>'You [[Help:Moving a page|move]] the article using the \"move\" button (to the right of the \"edit this page\" button). Your account must be 4 days old to move pages. If the move is controversial or impossible, visit [[Wikipedia:Requested moves]]; in the case of a move that\'s impossible only because there\'s a redirect with history at the name you want to rename the article to, you can also request the move by placing {{[[Template:db-move|db-move]]|name of page to move from<nowiki>}}</nowiki> on the page to move to.','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420010233,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>16,'rev_page'=>14,'rev_text'=>'To give parameter 1 the default value of A, use <nowiki>{{{1|A}}}, instead of {{{1}}}.</nowiki>
+See [[m:Help:Template#Declaring_a_default_value]] for more detailed information.','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420010254,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>17,'rev_page'=>15,'rev_text'=>'One thing to keep in mind is that only the most recent confirmation email you send will work. When you send a new confirmation email it makes all the previous ones expire immediately.','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420010400,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>18,'rev_page'=>16,'rev_text'=>'The only way you can retrieve a forgotten password is by using the \"E-mail new password\" button on the login dialog. Unfortunately, if you didn\'t set an e-mail, there is no way to recover your password.','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420010420,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>19,'rev_page'=>17,'rev_text'=>'It depends on your web browser. If you\'re using Internet Explorer, go to the page that you want to set as your home page, and click Tools, then Internet Options in the menu. Then, click the \"Use Current\" button. If you\'re using Mozilla Firefox, go to the page that you want to set as your home page, and click Tools, then Options in the menu. Then, click the \"Use Current Pages\" button.','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420010442,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>20,'rev_page'=>18,'rev_text'=>'On someone\'s talk page you can place the {{tl|sign}} template (or {{tl|tilde}}) - that will explain to them how to sign.
+
+To sign an unsigned comment on a talk page you can use {{tl|unsigned}} or {{tl|unsigned2}}. For example <nowiki>{{unsigned|Joe Bloggs}}</nowiki> will look like: <small>â€”The preceding [[Wikipedia:Signatures|unsigned]] comment was added by [[User:Joe Bloggs|Joe Bloggs]] ([[User talk:Joe Bloggs|talk]] â€¢ [[Special:Contributions/Joe Bloggs|contribs]]).</small>','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420010508,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>21,'rev_page'=>19,'rev_text'=>'Yes, only [[WP:ADMIN|administrators]] can block users, or protect and delete pages.','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420010543,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>22,'rev_page'=>20,'rev_text'=>'First, you need a user account. Then, make useful edits over a period of time. In this way, you prove to the community that you are here in good faith. After some months, you can add your name to [[Wikipedia:Requests for adminship]]. Be sure to read [[Wikipedia:administrators\' reading list|Administrators\' reading list]], [[Wikipedia:Administrators]], [[Wikipedia:deletion policy|deletion policy]], [[Wikipedia:protection policy|protection policy]], and [[Wikipedia:blocking policy|blocking policy]], and use your new \"powers\" with caution. [[Wikipedia:Guide to requests for adminship]] is an explanation of the process by which users become administrators and things to bear in mind before applying.','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420010604,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>23,'rev_page'=>21,'rev_text'=>'See: [http://www.google.com/custom?sa=Google+Search&domains=wikipedia.org&sitesearch=wikipedia.org]','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420010635,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>24,'rev_page'=>22,'rev_text'=>'Templates are pages that you can include on another page.  They are usually used to insert boilerplate messages that need to be displayed on more than one page.  But templates are quite versatile and can be used to accomplish many things.  Some specialized uses for templates are:
+*Displaying a different page each day (like the [[Template:Tip of the day|Tip of the day]], [[Template:Pic of the day|Pic of the day]], etc.)
+*Infoboxes (e.g., [[Template:Infobox_Philosopher]]). To see Socrates in this infobox, \'\'\'\'\'[[Socrates|click here]]\'\'\'\'\'.
+*Displaying a random page (see this implemented at [[Wikipedia:Featured content]]).
+*Navigation bars (e.g., [[Template:browsebar]]).
+*Navigation boxes (e.g., [[Template:Greek myth]]).
+*WikiProject task boxes (e.g., [[Template:PhilosophyTasksBox]]).
+*Page headers, like the header at the top of the [[Wikipedia:Help Desk|Help Desk]]
+To include a template on a page, enclose it in double curly brackets, leaving out the prefix \"Template:\", like this:
+
+:<nowiki>{{In the news}}</nowiki>','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420010712,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>25,'rev_page'=>23,'rev_text'=>'Wikipedia articles can be copied and modified by anyone, but there\'s a catch: All modifications have to be made available under the same conditions, and credit has to be given to the original authors. These are the key terms of the [[GNU Free Documentation License]], under which our article text is [[license]]d. There are various [[Wikipedia:mirrors and forks|mirrors and forks]] which use our content, and you can [http://download.wikimedia.org/ download our entire database] to become one of them. But please only add content which you have created, or which you have been [[Wikipedia:Boilerplate request for permission|permitted to use]] under our terms. Everything is [[copyright]]ed by default, even if it does not have a notice to that effect!','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420010758,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>26,'rev_page'=>24,'rev_text'=>'There are several tools available at [[Wikipedia:WikiProject edit counters]], such as [http://toolserver.org/~soxred93/ec].','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420010834,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>27,'rev_page'=>25,'rev_text'=>'The term \"[[Wikipedia:WikiProject|WikiProject]]\" is reserved for projects created for the purpose of managing a specific family of information within Wikipedia. It is not a place to write encyclopedia articles (that\'s done on the article pages themselves), but a resource to help coordinate and organize article writing. The attached talk pages are a convenient forum for those interested in a particular project. WikiProjects can also have associated Portals. The \'\'\'\'\'[[Wikipedia:Tip of the day|Tip of the day]] project\'\'\'\'\' is not a WikiProject, because it coordinates the development of self-referential content (Wikipedia instructions) rather than content of the encyclopedia itself (such as [[Roman Empire]]).  Note that some self-referential projects have broken this guideline.','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420010856,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>28,'rev_page'=>26,'rev_text'=>'To give you an idea of how Wikipedia compares in popularity to the other websites on the Internet, check out [[Wikipedia:Awareness statistics|statistics]] from [[Alexa Internet|Alexa]] traffic measurements, [[Usenet]] [http://dmoz.org/Computers/Open_Source/Open_Content/Encyclopedias/Wikipedia/ posts], and [[Google|Google\'s]] [http://news.google.com/news?hl=en&ned=us&q=Wikipedia news] services.','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420010928,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>29,'rev_page'=>27,'rev_text'=>'You can turn navigation popups on for your user account by changing your preferences; they are under the \'Gadgets\' tab or section of [[Special:Preferences]]. See [[WP:POPUPS]] for more information about popups.','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420010951,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>30,'rev_page'=>28,'rev_text'=>'To report a persistent vandal (after warning them with the relevant block templates), go to [[WP:AIV]] and add an entry there, and an administrator should come and block the user.','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420011010,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>31,'rev_page'=>29,'rev_text'=>'See [[Help:Reverting]].','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420011033,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>32,'rev_page'=>30,'rev_text'=>'\"Go\" simply does that - it goes to the page with that exact name, with exactly the same capitalizations. The \"Search\" button searches Wikipedia for a page with similar title and text. But note that the Wikipedia search engine is only updated sporadically, and will not display new pages. Google will not have the latest pages either, but it will often be more up-to-date than Wikipedia\'s search engine. To use Google to search Wikipedia, add \"site:en.wikipedia.org\" to your search query.','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420011057,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>33,'rev_page'=>31,'rev_text'=>'To sign a post, simply append \"<nowiki>~~~~</nowiki>\" to the end of your post.','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420011124,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>34,'rev_page'=>32,'rev_text'=>'Wikipedia is an online free-content encyclopedia that anyone can edit. Wikipedia co-founder [[Jimmy Wales]] has described Wikipedia as \"an effort to create and distribute a multilingual free encyclopedia of the highest possible quality to every single person on the planet in their own language.\" Wikipedia exists to bring knowledge to everyone.','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420011141,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>35,'rev_page'=>33,'rev_text'=>'See [[Wikipedia:Overview_FAQ#Who_is_responsible_for_the_articles_on_Wikipedia.3F]]','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420011208,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>36,'rev_page'=>34,'rev_text'=>'See [[Wikipedia:Overview FAQ#How can I contact the project?]].','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420011416,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>37,'rev_page'=>35,'rev_text'=>'All text on Wikipedia is licensed under the [[GNU Free Documentation License]] (GFDL). Over 100 sites using Wikipedia for content have been identified, and categorized by their degree of compliance, at [[Wikipedia:GFDL Compliance]]. [[Wikipedia:Mirrors and forks]] has more information, including what to do if someone is violating the GFDL license. If you see an article somewhere else which was copied from Wikipedia without attribution, visit the [[Wikipedia:Mirrors and forks/GFDL Compliance|GFDL compliance]] page or [[meta:Non-compliant site coordination]].','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420011527,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>38,'rev_page'=>36,'rev_text'=>'Wikipedia, and the other Wikimedia projects use the [[MediaWiki]] software to facilitate collaborative editing and storage of page histories. You can download MediaWiki and use it on your own servers at [http://www.mediawiki.org/ MediaWiki.org].','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420011600,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>39,'rev_page'=>37,'rev_text'=>'See [[Help:Edit conflict]].
+
+When the second person (and later persons) attempts to save the page mediawiki will attempt to merge their changes into the current version of the text. If the merge fails then the user will receive an \\\"edit conflict\\\" message, and the opportunity to merge their changes manually. The wiki will also check for a conflict if you are editing and do a preview of the edit. Multiple consecutive conflicts are noticed, and will generate a slightly different message. This is similar to [[Concurrent Versions System]] (CVS), a widely used software version management system.','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420011630,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>40,'rev_page'=>38,'rev_text'=>'Wikipedia articles are all [[open content]] and are covered by the [[GNU Free Documentation License]]. See [[Wikipedia:Copyrights]].
+','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420011654,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>41,'rev_page'=>39,'rev_text'=>'You may mirror or quote as much as you wish, as long as you maintain the text under the GNU Free Documentation License. See [[Wikipedia:Copyrights]].','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420011752,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>42,'rev_page'=>40,'rev_text'=>'Cite it as you would any other web page in accordance with the normal citation practice the publication you are submitting the paper to follows. Citing the individual authors is not necessary, but you should at least include the date on which you retrieved the article (and ideally the full timestamp from the history).
+
+Automatically generated citations in several standard styles are available through the \"Cite this article\" link in the toolbox, or visit the [[Special:Cite]] page.
+
+See [[Wikipedia:Citing Wikipedia]] for more information.','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420011814,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>43,'rev_page'=>41,'rev_text'=>'See [[Wikipedia:Template messages]].','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420011849,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>44,'rev_page'=>42,'rev_text'=>'Mediawiki wikis currently do not share login information - you have to create a separate account for each wiki you frequent. There are plans to change this, though, and they should be happening pretty soon. (See [[m:Single login specifications]]) In order to prepare for this, and to ensure a speedy transition, it is suggested that you (1) Create an account using the same username (if available) on all wikis you use. (2) Set the same e-mail address for all wikis you use, and follow the confirmation procedures. The password can be different; that won\'t matter. You can link your user pages by using the same interwiki syntax used on articles.','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420011913,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>45,'rev_page'=>43,'rev_text'=>'See \"[[Wikipedia:Overview FAQ#Who owns Wikipedia?|who owns Wikipedia]]\" for more information.','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420011940,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>46,'rev_page'=>44,'rev_text'=>'Help regarding Wikipedia policies or editing can be found at the [[WP:HD|Help Desk]] and [[WP:NUH|New contributors\' help page]]. You can also visit the [[IRC]] [irc://irc.freenode.net/#wikipedia-bootcamp Wikipedia Bootcamp] or simply place a {{tl|helpme}} on your talk page for some instant assistance.','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420012018,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>47,'rev_page'=>45,'rev_text'=>'No, fair use image can only be added to articles that are closely related to the subject matter. Therefore, they cannot be added to user pages or put in userboxes.','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420012046,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>48,'rev_page'=>46,'rev_text'=>'If you believe Wikipedia is infringing your copyright, you may  [[Wikipedia:Request for immediate removal of copyright violation|request immediate removal]] of the copyright violation. Alternatively, you may contact Wikipedia\'s [[Wikimedia:Designated agent|designated agent]] under the terms of the [[Online Copyright Infringement Liability Limitation Act]].','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420012111,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>49,'rev_page'=>47,'rev_text'=>'If you submitted work to Wikipedia which you had previously published (especially online), and your submission was marked as a potential infringement of copyright, stating that you are the copyright holder of the work on the article\'s talk page helps, but will not likely prevent deletion. It is sufficient to either (1) Make a note permitting reuse under the [[WP:GFDL|GFDL]] at the site of the original publication. (2) Send an email from an address associated with the original publication to <code>permissions at wikimedia dot org</code> or a postal message to the [http://wikimediafoundation.org/wiki/Contact_us Wikimedia Foundation].','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420012334,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>50,'rev_page'=>48,'rev_text'=>'\'\'\'Copyright exists automatically\'\'\' upon creation in a tangible form. An author does not need to apply for or even claim copyright for a copyright to exist. \'\'Only\'\' an explicit statement that the material is in the [[public domain]], licensed with the [[GFDL]], or is otherwise compatible with the GFDL, makes material reusable under current policy, unless it is inherently in the public domain due to age or source. ','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420012355,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>51,'rev_page'=>49,'rev_text'=>'Under the [[Wikipedia:Fair use|fair use]] guideline, \'\'brief\'\' selections of copyrighted text may be used, but \'\'only\'\' with full attribution and \'\'only\'\' when the purpose is to comment on or criticize the text quoted.','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420012434,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>52,'rev_page'=>50,'rev_text'=>'You can request feedback on your new articles and edits by using [[Wikipedia:Requests for feedback]]. If your article is nearing [[WP:FA|Featured Article]] status, you might also like to consider [[Wikipedia:Peer Review]], although this is a much more thorough and stressful process.','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420012502,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>53,'rev_page'=>51,'rev_text'=>'It\'s quite easy. Simply click the \"Edit this page\" tab located at the top of the page or the other edit link across from headings on the right hand side of the page, and type away. See [[Wikipedia:How to edit a page|How to edit a page]] to learn about making links, using \'\'\'bold\'\'\' and \'\'italics\'\', linking to images, and many other things...','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420012520,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>54,'rev_page'=>52,'rev_text'=>'See [[Wikipedia:Browser notes]].','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420012544,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>55,'rev_page'=>53,'rev_text'=>'First off, please don\'t blank articles. Such changes will most likely get reverted soon afterwards, so they are pointless, too. The procedure for deletions is explained at [[Wikipedia:Deletion policy]]. Articles that should be deleted are most commonly nominated at [[Wikipedia:Articles for deletion]].','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420012610,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>56,'rev_page'=>54,'rev_text'=>'The easiest way to edit the redirected page is to click on the link you see at the top of the page after being redirected: \"redirected from ...\". For example, if you try to go to the [[William Jefferson Clinton]] page, you are redirected to the [[Bill Clinton]] page. At the very top of that page, you will see a message: \"(redirected from [[William Jefferson Clinton]])\", Click on the [[William Jefferson Clinton]] link, and you will edit the redirect page.  See [[Wikipedia:Redirect]].','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420012630,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>57,'rev_page'=>55,'rev_text'=>'See [[Wikipedia:Editing_FAQ#How_long_should_the_ideal_article_be.3F]].','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420012654,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>58,'rev_page'=>56,'rev_text'=>'Click on the image to get the description page.  Also, when you upload the file everything you put in the upload summary is placed into the [[image description page]]. See [[:Image:Great Horned Owl.USFWS-thumb.jpg]] for an example of what goes onto one of these pages.','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420012714,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>59,'rev_page'=>57,'rev_text'=>'Only [[Wikipedia:Administrators]] can delete uploads, but anyone can upload a new item with the same name, thereby replacing the old one. If you want to nominate an uploaded image for deletion, see [[Wikipedia:Images for deletion]].','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420012735,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>60,'rev_page'=>58,'rev_text'=>'First, you need the right to publish the picture under a free licence that\'s accepted by Wikipedia (see [[commons:Commons:Licensing#Acceptable licenses]]); for instance, the [[GNU Free Documentation License]] (as is used for Wikipedia\'s text), or a [[Creative Commons]] licence that doesn\'t restrict commercial use or creation of derivatives (such as CC-by-sa), or the public domain. This means that either you created the picture and therefore own the copyright, the person who created it explicitly stated that it was under an acceptable licence, or it is in the public domain. (Note this does not apply to images used under the limited [[Wikipedia:Fair use]] doctrine). To upload an image to Wikipedia, you can use [[Wikipedia:Upload]] (the \'Upload file\' link, which is at the left of the screen if you haven\'t customised your skin) as a logged-in user and once it is uploaded, you can refer to it in your wiki pages by including its file name: <code><nowiki>[[Image:NameOfImage.png|Alternate Text]]</nowiki></code>. See also [[Wikipedia:Image use policy]], [[Wikipedia:Picture tutorial]], and [[Wikipedia:Extended image syntax]].','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420012754,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>61,'rev_page'=>59,'rev_text'=>'See [[WP:UBX]] for a full list. However, note that userboxes that show personal beliefs may be controversial and may be subject to deletion.','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420012819,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>62,'rev_page'=>60,'rev_text'=>'[[Wikipedia:Policies and guidelines]] describes how Wikipedia arrives at its policies and guidelines through a process of discussion and consensus. Discussion takes place in the [[Wikipedia:Mailing lists]] and in the various policy pages which form part of the \"Wikipedia:\" namespace.','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420012842,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>63,'rev_page'=>61,'rev_text'=>'Two words for the same thing. An administrator is simply a [[Wikipedia:Wikipedians|Wikipedian]] who can access the few restricted Wikipedia software functions: deleting articles and uploaded files, protecting and unprotecting pages and blocking and unblocking IP addresses. The software internally uses the string \"sysop\" to flag their accounts, perhaps one reason that term is used. They tend to be friendly folks that are willing to help you, if you post on their \"talk page\". See the [[Wikipedia:Administrators]] and [[Wikipedia:List of administrators|Current list of administrators]].','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420012858,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>64,'rev_page'=>62,'rev_text'=>'Administrators monitor each other; nearly all admin powers are completely reversible by any other admin (including [[Special:Log/delete|page deletions]], [[Wikipedia:Protection policy|lockings]], and [[Special:Ipblocklist|IP bannings]]). The [[Wikipedia:Arbitration Committee|Arbitration Committee]] also has the power to discipline administrators, and has done so in several cases. In a truly rare case the [[Wikimedia]] Board of Trustees, or even [[Jimbo Wales]], could step in.','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420012917,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>65,'rev_page'=>63,'rev_text'=>'Administrators can go to [[Special:Ipblocklist]] and click on \"unblock\" as required. Developers can unblock multiple IPs at once.','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420012935,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>66,'rev_page'=>64,'rev_text'=>'The template to use for full protection is {{tl|pp-usertalk}}.','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420012959,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>67,'rev_page'=>65,'rev_text'=>'Use [[Special:Listusers]].','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420013016,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>68,'rev_page'=>66,'rev_text'=>'You can place {{tl|db-author}} at the top of the page; that nominates the article for speedy deletion, on the grounds that its sole contributor feels it should be deleted (usually used for accidental creations, pretty much).','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420013036,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>69,'rev_page'=>67,'rev_text'=>'See [[User:Raul654/protection]] for some reasons why.','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420013136,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>70,'rev_page'=>68,'rev_text'=>'See [[Wikipedia:Text editor support#Vim]] and [[m:Help:External editors]].','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420013155,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>71,'rev_page'=>69,'rev_text'=>'See [[WP:UBX#Designing_a_userbox]] for details.','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420013302,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>72,'rev_page'=>70,'rev_text'=>'First warn the vandal by placing the appropriate [[Wikipedia:Template messages/User talk namespace#Warnings|warning templates]] on their user talk page. If the vandal continues, list them at [[WP:AIV|Administrator intervention against vandalism]]. If your user page is often severely vandalized by different people, contact an [[WP:ADMIN|administrator]] to request protection of your user page.','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420013324,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>73,'rev_page'=>71,'rev_text'=>'First, please note our [[Wikipedia:Verifiability]], [[Wikipedia:No original research]], and [[Wikipedia:Notability]] policies, which all articles must abide by. (If they do not, they will get deleted). It is generally recommended that you not write about yourself, or companies and organizations you are associated with. The common adage goes, \"if it\'s notable enough, someone else will add it\". Also, see [[Wikipedia:Spam]]. That said, to create a new page, see [[Help:Starting a new page]]. You might also want to take a look at [[Wikipedia:Your first article]] and [[Wikipedia:How to write a great article]].','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420013347,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>74,'rev_page'=>72,'rev_text'=>'In the [[Help:Edit summary|edit summary]] box, the text in between \'/*\' and \'*/\' is the section title where the edit was made. The software automatically adds this in when you edit a section (using [edit] rather than \"edit this page\"), you don\'t need to do it yourself. In the [[Help:Page history|page history]] it will show up as grey and italic text, for example if you edit the \"Background\" section of an article, the resulting edit summary will look like: ([[Example#Background|â†’]]<span style=\"color:#AAA\">\'\'Background\'\'</span>).','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420013424,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>75,'rev_page'=>73,'rev_text'=>'You need to include the following when you upload an image, else it gets deleted: (1) Source of the image (mention if you made it yourself) (2) Copyright holder and license of the file. For more information, see [[Wikipedia:Image use policy]]. You can also check the deletion reason in the [[Special:Log|log]].','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420013454,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>76,'rev_page'=>74,'rev_text'=>'WikiProjects most often contain advice on how to edit their particular family of pages and other useful information, lists of participants, and to-do lists. Some have more than others, generally depending on their scope - to pick one at random, [[Wikipedia:WikiProject Novels|Wikiproject Novels]] is of suitably broad scope that they have their own \'current tasks\' pane like the one at [[WP:CP|the community portal]]. There are also WikiProjects dedicated to general clerical tasks, such as managing categories, cleanup, and even standardising succession boxes (that seems to be the newest one in that category). Basically, if you\'re interested in a specific subject, or you know of an article that could use some specialist attention, the WikiProjects are a good place to go. Looking over [[Wikipedia:List of WikiProjects]] will give you a good overview of what there is available. For more information, see [[Wikipedia:WikiProject]].','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420013515,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>77,'rev_page'=>75,'rev_text'=>'See [[Wikipedia:User page]] for guidelines about userpages. Also see what Wikipedia is [[WP:NOT]].','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420013531,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>78,'rev_page'=>76,'rev_text'=>'To force a new line without creating a blank line, type <tt><nowiki><br /></nowiki></tt> where you want the line break. Use this only when necessary - normal paragraphs should be created by pressing enter twice.','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420013556,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>79,'rev_page'=>77,'rev_text'=>'See [[Wikipedia:How to archive a talk page]].','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420013619,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>80,'rev_page'=>78,'rev_text'=>'Yes, you can. See [[Help:Talk pages]] for more information on talk pages.','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420013637,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>81,'rev_page'=>79,'rev_text'=>'The basic concept is at [[Wikipedia:Disambiguation]].
+
+The guide for creating disambiguation pages is at [[Wikipedia:Manual of Style (disambiguation pages)]].
+
+You can request help with disambiguation at the [[Wikipedia:Help desk|Help desk]] or [[Wikipedia talk:WikiProject Disambiguation]]','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420013706,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>82,'rev_page'=>80,'rev_text'=>'Red links are wiki-links to articles or other pages that do not currently exist. See [[Wikipedia:Red link]] for more information.','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420013730,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>83,'rev_page'=>81,'rev_text'=>'See [[Help:Table]]. It mentions some ways in which you can convert external table data to wikitables. Remember you can also use the standard HTML table syntax.','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420013814,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>84,'rev_page'=>82,'rev_text'=>'See [[Wikipedia:Citing sources]] to learn about what sort of references to use.
+
+See [[Wikipedia:Footnotes]] to learn how to use the <ref> footnote system.','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420013835,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>85,'rev_page'=>83,'rev_text'=>'See [[Wikipedia:Manual of Style (dates and numbers)]] for more on the official Wikipedia style.','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420013900,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>86,'rev_page'=>84,'rev_text'=>'You cannot. An edit summary cannot be modified once it is saved.
+
+However, for particularly damaging edit summaries an administrator can completely remove the edit (and summary). This is rare and undesirable.
+
+If adding an edit summary is vital, you can do a [[Help:Dummy edit|dummy edit]] with a summary like \"the previous edit was blah blah blah\".','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420013920,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>87,'rev_page'=>85,'rev_text'=>'The default [http://en.wikipedia.org/skins-1.5/common/commonPrint.css print stylesheet] does not show wikilinks when printing.
+
+To change this, add the following to [[Special:Mypage/monobook.css|your monobook.css]] (if that is the skin that you use):
+<pre>
+@media print {
+    a, a.external, a.new, a.stub {
+        color: blue ! important;
+        text-decoration: underline ! important;
+    }
+}
+</pre>','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420013948,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>88,'rev_page'=>86,'rev_text'=>'This could be incorrect use of the cite.php footnote system (that uses <tt><nowiki><ref></nowiki></tt> and <tt><nowiki><references/></nowiki></tt>) which is fully explained at [[Wikipedia:Footnotes]].
+
+A common problem with using the footnote system is that part of the article gets cut off when you save or show preview. This is usually caused by forgetting to close a <tt><nowiki><ref></nowiki></tt> with a <tt><nowiki></ref></nowiki></tt>, or using <tt><nowiki><ref name=\"fooboo\"></nowiki></tt> instead of <tt><nowiki><ref name=\"fooboo\"/></nowiki></tt> for a second reference.
+
+Another unrelated problem that results in cutting off the article is incorrect use of html comments. The correct way is <nowiki><!--This is a comment--></nowiki>.','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420014031,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>89,'rev_page'=>87,'rev_text'=>'Red links indicate that a page is not yet created whereas blue links indicate that a page exists.
+
+This also applies to user pages. So if someone\'s signature link is red it probably indicates that they don\'t have a user page yet.','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420014054,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>90,'rev_page'=>88,'rev_text'=>'For example the problem could be that you want to write a biography on John Howard the scuba diver, but [[John Howard]] already exists.
+
+In this case you would create your article at [[John Howard (scuba diver)]].
+
+[[Wikipedia:Naming conventions]] describes which article name to choose.
+
+[[Wikipedia:Disambiguation]] describes how to work with [[Wikipedia:Manual of Style (disambiguation pages)|disambiguation pages]] or hatnotes to navigate people to your new article.','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420014120,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>91,'rev_page'=>89,'rev_text'=>'The process to delete a template is [[Wikipedia:Templates for deletion]]. However, many templates are associated with [[Wikipedia:WikiProject|WikiProjects]]; you may like to consult with the appropriate project before nominating such templates.','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420014243,'rev_comment'=>'Submitting new entry'),
+  array('rev_id'=>92,'rev_page'=>90,'rev_text'=>'You can just reply underneath the message on your talk page (click the [edit this page] tab a the top of the page or the [edit] link just above the section you are replying to), you can visit the user\'s talk page and start a new section and reply there, or you can do both - leave a message on their talk page and make a note on your talk page.
+
+The choice is up to you, but some users will say which option they prefer on their talk page.','rev_user'=>'X!','rev_mod'=>0,'rev_timestamp'=>20090420014258,'rev_comment'=>'Submitting new entry')
+);
+
+$page = array(
+  array('page_id'=>2,'page_rev'=>4,'page_title'=>'An article doesn\'t show up in the search','page_keywords'=>'google cache','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>3,'page_rev'=>5,'page_title'=>'All links suddenly became underlined','page_keywords'=>'preference','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>4,'page_rev'=>6,'page_title'=>'I changed the skin and can\'t get it back to normal','page_keywords'=>'cologne preference Chic Classic Simple MonoBook Blue Nostalgia MySkin cologneblue','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>5,'page_rev'=>7,'page_title'=>'How do I create a new article?','page_keywords'=>'start write insert entry adding page wiki addition submit','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>6,'page_rev'=>8,'page_title'=>'How do I cite Wikipedia?','page_keywords'=>'wrote author writer','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>7,'page_rev'=>9,'page_title'=>'Who wrote article X on Wikipedia?','page_keywords'=>'author copyright','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>8,'page_rev'=>10,'page_title'=>'How do I change my username?','page_keywords'=>'rename account name','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>9,'page_rev'=>11,'page_title'=>'When I try to edit, it opens index.php','page_keywords'=>'download prompt popup preference','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>10,'page_rev'=>12,'page_title'=>'Why has my article been deleted?','page_keywords'=>'deleted','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>11,'page_rev'=>13,'page_title'=>'Why have I been blocked?','page_keywords'=>'Why have I been blocked?','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>12,'page_rev'=>14,'page_title'=>'Are page hit counters available?','page_keywords'=>'popularity many people article hits hitcounter','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>13,'page_rev'=>15,'page_title'=>'How do I change the name of an article?','page_keywords'=>'rename move title renaming re-name re-naming articles edit misspelled correct','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>14,'page_rev'=>16,'page_title'=>'How do I declare a default value for a template parameter?','page_keywords'=>'unset undefined default','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>15,'page_rev'=>17,'page_title'=>'My confirmation code doesn\'t work','page_keywords'=>'e-mail email login account create confirm','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>16,'page_rev'=>18,'page_title'=>'I forgot my password','page_keywords'=>'lost credentials reset','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>17,'page_rev'=>19,'page_title'=>'How do I set Wikipedia as my home page?','page_keywords'=>'front open startup main','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>18,'page_rev'=>20,'page_title'=>'How do I remind people to sign their posts?','page_keywords'=>'unsigned  unsigned2  signature sign','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>19,'page_rev'=>21,'page_title'=>'Can only administrators block users/delete/protect pages?','page_keywords'=>'sysop people','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>20,'page_rev'=>22,'page_title'=>'How do I become an administrator?','page_keywords'=>'sysop mod moderator admin','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>21,'page_rev'=>23,'page_title'=>'How do I search Wikipedia using Google?','page_keywords'=>'sitesearch customized find','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>22,'page_rev'=>24,'page_title'=>'What are templates used for?','page_keywords'=>'template','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>23,'page_rev'=>25,'page_title'=>'What is Wikipedia licensed under?','page_keywords'=>'copyright license gfdl','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>24,'page_rev'=>26,'page_title'=>'How do I count my edits?','page_keywords'=>'editcount editcountitis contributions','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>25,'page_rev'=>27,'page_title'=>'When is a Wikipedia project a WikiProject','page_keywords'=>'','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>26,'page_rev'=>28,'page_title'=>'How popular is Wikipedia?','page_keywords'=>'popularity rankings','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>27,'page_rev'=>29,'page_title'=>'How do I use popups?','page_keywords'=>'navigation popups','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>28,'page_rev'=>30,'page_title'=>'Where can I report persistent vandals?','page_keywords'=>'vandalism block','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>29,'page_rev'=>31,'page_title'=>'How do I revert to a previous version?','page_keywords'=>'vandalism restore edit rv rvv','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>30,'page_rev'=>32,'page_title'=>'What are the differences between Go and Search?','page_keywords'=>'google find cache hit','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>31,'page_rev'=>33,'page_title'=>'How do I sign my posts?','page_keywords'=>'sign signature','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>32,'page_rev'=>34,'page_title'=>'What is Wikipedia?','page_keywords'=>'','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>33,'page_rev'=>35,'page_title'=>'Who is responsible for the articles on Wikipedia?','page_keywords'=>'responsibility legal','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>34,'page_rev'=>36,'page_title'=>'How can I contact the project?','page_keywords'=>'contact email e-mail mailing list','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>35,'page_rev'=>37,'page_title'=>'Site X seems to be violating Wikipedia\'s copyright','page_keywords'=>'gfdl answers.com copy verbatim','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>36,'page_rev'=>38,'page_title'=>'Which wiki software does Wikipedia run on','page_keywords'=>'php script cgi software mediawiki','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>37,'page_rev'=>39,'page_title'=>'What if two people edit the same article at the same time','page_keywords'=>'conflict error','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>38,'page_rev'=>40,'page_title'=>'What is the license agreement on the contents of Wikipedia','page_keywords'=>'copyright gfdl open free','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>39,'page_rev'=>41,'page_title'=>'May I mirror entire sections of the Wikipedia to my site? How much may I quote?','page_keywords'=>'use content copy','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>40,'page_rev'=>42,'page_title'=>'How do I cite a Wikipedia article in a paper','page_keywords'=>'harvard chicago manual style endnotes end notes bibliography','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>41,'page_rev'=>43,'page_title'=>'Where can I get a list of template messages?','page_keywords'=>'vandalism warnings npov message','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>42,'page_rev'=>44,'page_title'=>'Do I need a separate account for every wiki?','page_keywords'=>'wiktionary commons language cookie cookies','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>43,'page_rev'=>45,'page_title'=>'Who owns Wikipedia?','page_keywords'=>'jimbo jimmy wales wikimedia foundation','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>44,'page_rev'=>46,'page_title'=>'Where can I get help?','page_keywords'=>'helpme assistance manual','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>45,'page_rev'=>47,'page_title'=>'Can I put fair use images on my user page?','page_keywords'=>'userbox userboxen commercial non-free','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>46,'page_rev'=>48,'page_title'=>'Wikipedia is infringing my copyright. What should I do?','page_keywords'=>'infringe violate lawyer legal attorney stealing copy copying plagiarism taking violating','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>47,'page_rev'=>49,'page_title'=>'How do I prove that the copyrighted content I submitted belongs to me?','page_keywords'=>'accused own proving permission','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>48,'page_rev'=>50,'page_title'=>'What\'s copyrighted?','page_keywords'=>'law what figure status','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>49,'page_rev'=>51,'page_title'=>'May I copy copyrighted text from other websites or publications?','page_keywords'=>'commercial site book books publication copyright gfdl','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>50,'page_rev'=>52,'page_title'=>'How do I request feedback on my articles?','page_keywords'=>'constructive criticism review doing','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>51,'page_rev'=>53,'page_title'=>'How do I edit a page?','page_keywords'=>'','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>52,'page_rev'=>54,'page_title'=>'I have problems editing with my browser!','page_keywords'=>'internet explorer firefox software safari netscape opera','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>53,'page_rev'=>55,'page_title'=>'How do I delete a page?','page_keywords'=>'remove blanking deletion deleted nominate nomination article','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>54,'page_rev'=>56,'page_title'=>'How do I edit a redirect page?','page_keywords'=>'sharp pound','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>55,'page_rev'=>57,'page_title'=>'How long should the ideal article be?','page_keywords'=>'recommendation good hub length','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>56,'page_rev'=>58,'page_title'=>'How do I describe images?','page_keywords'=>'','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>57,'page_rev'=>59,'page_title'=>'How can I delete uploaded items?','page_keywords'=>'remove','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>58,'page_rev'=>60,'page_title'=>'How can I put pictures on my pages?','page_keywords'=>'images insert','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>59,'page_rev'=>61,'page_title'=>'Where can I find a list of userboxes?','page_keywords'=>'userbox boxes box userboxen page','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>60,'page_rev'=>62,'page_title'=>'How do policies get decided?','page_keywords'=>'policy decisions decision','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>61,'page_rev'=>63,'page_title'=>'What is an administrator? What is a sysop?','page_keywords'=>'admin mod','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>62,'page_rev'=>64,'page_title'=>'Who monitors the conduct of an administrator?','page_keywords'=>'sysop mod','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>63,'page_rev'=>65,'page_title'=>'How can I unblock an IP?','page_keywords'=>'unban','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>64,'page_rev'=>66,'page_title'=>'What is the template to use when protecting a user talk page?','page_keywords'=>'full protection','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>65,'page_rev'=>67,'page_title'=>'Where can I get an alphabetical list of users?','page_keywords'=>'','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>66,'page_rev'=>68,'page_title'=>'I mistakenly created an article. How do I get it deleted?','page_keywords'=>'remove','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>67,'page_rev'=>69,'page_title'=>'Why are featured articles on the Main Page not protected?','page_keywords'=>'front fa','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>68,'page_rev'=>70,'page_title'=>'How do I use vim as an external editor?','page_keywords'=>'text','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>69,'page_rev'=>71,'page_title'=>'How do I make a custom userbox?','page_keywords'=>'userboxen userboxes boxes box design modify','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>70,'page_rev'=>72,'page_title'=>'My user page is being vandalized','page_keywords'=>'','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>71,'page_rev'=>73,'page_title'=>'How do I add a page about myself, or my site, company or organization?','page_keywords'=>'biography autobiography organisation article wiki adding website addition','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>72,'page_rev'=>74,'page_title'=>'What does /* */ in the edit summary mean?','page_keywords'=>'gray','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>73,'page_rev'=>75,'page_title'=>'Why was my image deleted?','page_keywords'=>'graphic photo picture removed remove removal deletion','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>74,'page_rev'=>76,'page_title'=>'What are WikiProjects? How do they work?','page_keywords'=>'WikiProject project projects','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>75,'page_rev'=>77,'page_title'=>'Are there any guidelines for user pages?','page_keywords'=>'rules userpage','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>76,'page_rev'=>78,'page_title'=>'How do I force a new line?','page_keywords'=>'linebreak newline carriage','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>77,'page_rev'=>79,'page_title'=>'How do I archive a talk page?','page_keywords'=>'archival talkpage','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>78,'page_rev'=>80,'page_title'=>'Can I find the talk page under the \"discussion\" tab?','page_keywords'=>'note article user','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>79,'page_rev'=>81,'page_title'=>'How do I deal with disambiguation?','page_keywords'=>'disambiguate disambig','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>80,'page_rev'=>82,'page_title'=>'What are red links?','page_keywords'=>'redlink wikilink nonexistent non-existent redd','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>81,'page_rev'=>83,'page_title'=>'How do I create tables in wiki code? Can I convert tables from Excel?','page_keywords'=>'microsoft word wikicode wikisyntax wikitable table syntax','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>82,'page_rev'=>84,'page_title'=>'How do I use references to cite sources?','page_keywords'=>'end note endnote cite bibliography','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>83,'page_rev'=>85,'page_title'=>'When should I link dates, and how should I format them?','page_keywords'=>'datetime time house wikilink','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>84,'page_rev'=>86,'page_title'=>'How can I change an edit summary once the edit is posted?','page_keywords'=>'','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>85,'page_rev'=>87,'page_title'=>'How do I show links when printing?','page_keywords'=>'','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>86,'page_rev'=>88,'page_title'=>'My article gets cut off; part of the text disappears.','page_keywords'=>'cite.php appear references invisible show','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>87,'page_rev'=>89,'page_title'=>'Why are some links blue, while others are red?','page_keywords'=>'colour color wikilink redlink','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>88,'page_rev'=>90,'page_title'=>'An article title is already taken, but I want to start a new article on a different subject.','page_keywords'=>'','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>89,'page_rev'=>91,'page_title'=>'How do I nominate a template for deletion?','page_keywords'=>'tfd','page_is_deleted'=>0,'page_is_protected'=>0),
+  array('page_id'=>90,'page_rev'=>92,'page_title'=>'How do I reply to a message on my talk page?','page_keywords'=>'','page_is_deleted'=>0,'page_is_protected'=>0)
+);
+
+?>
 NubioCategory:
   general:
     name: General
@@ -8,7 +259,7 @@ sfGuardUser:
   User_admin:
     email_address:  nubio@toolserver.org
     username:       admin
-    password:       <?php echo trim( file_get_contents( sfConfig::get('sf_config_dir') . '/admin_pass.txt' ) ) . "\n" ?>
+    password:       nully
     is_super_admin: true
    
 NubioHelper:
@@ -18,45 +269,20 @@ NubioHelper:
     is_approved: 1
 
 NubioRevision:
-  revision1:
+<?php foreach( $revision as $i => $rev ): ?>
+  revision<?php echo $i + 1 ?>:
     NubioHelper: admin
-    topic_id: 1
-    text: Yes!
+    topic_id: <?php echo $i + 1 . "\n" ?>
     comment: add topic
+    text: "<?php echo str_replace( array( "\n", '"' ), array( '\n', '"' ), $rev['rev_text'] ) . "\"\n" ?>
     props: a:0:{}
-  revision2:
-    NubioHelper: admin
-    topic_id: 2
-    text: No!
-    comment: add topic
-    props: a:0:{}
-<?php for ($i = 3; $i <= 50; $i++): ?>
-  revision<?php echo $i ?>:
-    NubioHelper: admin
-    topic_id: <?php echo $i . "\n" ?>
-    comment: add topic
-    text: Text
-    props: a:0:{}
-<?php endfor ?>
+<?php endforeach ?>
 
 NubioTopic:
-  topic1:
-    summary: Will Nubio Work?
-    keywords: test
-    token: topic1
-    NubioRevision: revision1
+<?php foreach( $page as $i => $page ): ?>
+  topic<?php echo $i + 1 ?>:
+    summary: <?php echo $page['page_title'] . "\n" ?>
+    keywords: <?php echo $page['page_keywords'] . "\n" ?>
+    NubioRevision: revision<?php echo $i + 1 . "\n" ?>
     NubioCategory: general
-  topic2:
-    summary: Will it work ever?
-    keywords: test
-    token: topic2
-    NubioRevision: revision2
-    NubioCategory: wikitext
-<?php for ($i = 3; $i <= 50; $i++): ?>
-  topic_<?php echo $i ?>:
-    summary: <?php echo rand( 0, 14858 ) . "\n" ?>
-    keywords: test
-    token: topic<?php echo $i."\n" ?>
-    NubioRevision: revision<?php echo $i."\n" ?>
-    NubioCategory: general
-<?php endfor ?>
+<?php endforeach ?>
