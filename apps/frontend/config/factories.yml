@@ -24,9 +24,9 @@ test:
       delivery_strategy: none
 
 dev:
-#  mailer:
-#    param:
-#      delivery_strategy: none
+  mailer:
+    param:
+      delivery_strategy: none
 
 all:
   routing:

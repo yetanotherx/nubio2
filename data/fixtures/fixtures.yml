@@ -259,7 +259,7 @@ sfGuardUser:
   User_admin:
     email_address:  nubio@toolserver.org
     username:       admin
-    password:       nully
+    password:       <?php echo trim( file_get_contents( sfConfig::get('sf_config_dir') . '/admin_pass.txt' ) ) . "\n" ?>
     is_super_admin: true
    
 NubioHelper:

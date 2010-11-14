@@ -7,9 +7,13 @@
 <?php endif; ?>
 	<table class="prettytable topic_form">
 		<tfoot>
+			<?php
+			
+			if( $sf_user->isAuthenticated() ): ?>
 			<tr>
 				<th colspan="2">Password - <?php echo link_to( 'Change password', '@userreg_resetrequest' ) ?></th>
 			</tr>
+			<?php endif; ?>
 			<tr>
 				<td colspan="2">
 					&nbsp;<?php if( !is_null( $sf_user->getGuardUser() ) ) echo link_to( 'Back to profile', 'user/show?id=' . $sf_user->getGuardUser()->getId() ) ?>
