@@ -4,7 +4,7 @@ require_once dirname(__FILE__).'/../bootstrap/unit.php';
  
 $t = new NubioUnitTest();
  
-$t->comment('1 - ::slugify()');
+$t->info('1 - ::slugify()');
 $t->is(Nubio::slugify('Sensio'), 'sensio', '::slugify() converts all characters to lower case');
 $t->is(Nubio::slugify('sensio labs'), 'sensio-labs', '::slugify() replaces a white space by a -');
 $t->is(Nubio::slugify('sensio   labs'), 'sensio-labs', '::slugify() replaces several white spaces by a single -');
@@ -26,7 +26,7 @@ else
 
 
 
-$t->comment('2 - ::parseText()');
+$t->info('2 - ::parseText()');
 $t->is_ignore_nl(
         Nubio::parseText("Simple paragraph"), 
         'Simple paragraph', 
@@ -147,4 +147,131 @@ $t->is_ignore_nl(
         Nubio::parseText("éç†¥©√¨¥˙ˆ∆øµ∆ˆ∫˙©√çƒ∂≈¢"), 
         'éç†¥©√¨¥˙ˆ∆øµ∆ˆ∫˙©√çƒ∂≈¢', 
         "::parseText() converts UTF properly"
+);
+$t->is_ignore_nl(
+        Nubio::parseText("      This is a string     ", true), 
+        'This is a string', 
+        "::parseText() works without cURL"
+);
+
+
+
+$t->info( '3 - ::_parsePrettyUsername()' );
+
+$t->is(
+	Nubio::_parsePrettyUsername('John', 'Smith', 'jsmith'), 
+	'John Smith (jsmith)', 
+	'::_parsePrettyUsername() uses all 3 names'
+);
+$t->is(
+	Nubio::_parsePrettyUsername('', 'Smith', 'jsmith'), 
+	'Smith (jsmith)', 
+	'::_parsePrettyUsername() treats an empty string as null'
+);
+$t->is(
+	Nubio::_parsePrettyUsername('John', null, 'jsmith'), 
+	'John (jsmith)', 
+	'::_parsePrettyUsername() uses first name only'
+);
+$t->is(
+	Nubio::_parsePrettyUsername(null, null, 'jsmith'), 
+	'jsmith', 
+	'::_parsePrettyUsername() doesn\'t use parentheses for username only'
+);
+$t->is(
+	Nubio::_parsePrettyUsername(null, 'Smith', 'jsmith'), 
+	'Smith (jsmith)', 
+	'::_parsePrettyUsername() uses only last name'
+);
+$t->is(
+	Nubio::_parsePrettyUsername('', '', 'jsmith'), 
+	'jsmith', 
+	'::_parsePrettyUsername() continues to ignore empty strings'
+);
+$t->is(
+	Nubio::_parsePrettyUsername('', '', ''), 
+	'', 
+	'::_parsePrettyUsername() fails safely'
+);
+
+
+$t->info('4 - ::parseProps()');
+$t->is(
+	Nubio::parseProps(
+		array(
+		)
+	), 
+	'<ul></ul>', 
+	'::parseProps() returns an empty ul'
+);
+$t->is(
+	Nubio::parseProps(
+		array(
+			'oldcategory_id' => 1,
+			'newcategory_id' => 2
+		)
+	), 
+	'<ul><li>Category ID changed from 1 to 2</li></ul>', 
+	'::parseProps() parses category ids'
+);
+$t->is(
+	Nubio::parseProps(
+		array(
+			'oldsummary' => 'Foo',
+			'newsummary' => 'Bar'
+		)
+	), 
+	'<ul><li>Title changed from \'Foo\' to \'Bar\'</li></ul>', 
+	'::parseProps() parses summaries'
+);
+$t->is(
+	Nubio::parseProps(
+		array(
+			'oldkeywords' => 'foo bar',
+			'newkeywords' => 'fuu baz'
+		)
+	), 
+	'<ul><li>Keywords changed from \'foo bar\' to \'fuu baz\'</li></ul>', 
+	'::parseProps() parses keywords'
+);
+$t->is(
+	Nubio::parseProps(
+		array(
+			'oldcategory_id' => 1,
+			'newcategory_id' => 2,
+			'oldsummary' => 'Foo',
+			'newsummary' => 'Bar',
+			'oldkeywords' => 'foo bar',
+			'newkeywords' => 'fuu baz'
+		)
+	), 
+	'<ul><li>Category ID changed from 1 to 2</li><li>Title changed from \'Foo\' to \'Bar\'</li><li>Keywords changed from \'foo bar\' to \'fuu baz\'</li></ul>', 
+	'::parseProps() parses all 3'
+);
+$t->is(
+	Nubio::parseProps(
+		array(
+			'oldkeywords' => 'foo bar'
+		)
+	), 
+	'<ul><li>Keywords changed from \'foo bar\'</li></ul>', 
+	'::parseProps() fails safely without newkeywords'
+);
+$t->is(
+	Nubio::parseProps(
+		array(
+			'oldsummary' => 'Foo',
+		)
+	), 
+	'<ul><li>Title changed from \'Foo\'</li></ul>', 
+	'::parseProps() fails safely without newsummary'
+);
+$t->is(
+	Nubio::parseProps(
+		array(
+			'oldcategory_id' => 1
+		)
+	), 
+	'<ul><li>Category ID changed from 1</li></ul>', 
+	'::parseProps() fails safely without newcategory_id'
 );

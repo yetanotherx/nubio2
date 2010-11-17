@@ -32,7 +32,7 @@ class Nubio
 
   }
   
-	static public function parseText( $text ) {
+	static public function parseText( $text, $debug = false ) {
 		if (sfConfig::get('sf_debug') && sfConfig::get('sf_logging_enabled')) $timer = sfTimerManager::getTimer("Nubio::parseText"); //Add the timer for this to the frontend_dev toolbar
 		
 		$url = 'http://en.wikipedia.org/w/api.php';
@@ -54,10 +54,10 @@ class Nubio
 		curl_setopt($ch,CURLOPT_POST,1);
 		curl_setopt($ch,CURLOPT_POSTFIELDS, $params);
 		curl_setopt($ch,CURLOPT_URL,$url);
-		$x = unserialize( curl_exec( $ch ) );
+		$x = @unserialize( curl_exec( $ch ) );
 		curl_close($ch);
 		
-		if( !$x || !is_array($x) || !isset( $x['parse']['text']['*']) ) {
+		if( !$x || !is_array($x) || !isset( $x['parse']['text']['*']) || $debug ) {
 			$text = trim($text);
 		}
 		else {
@@ -70,26 +70,36 @@ class Nubio
 		return $text;
 	}
 	
-	static public function parsePrettyUsername( $nubio_helper, $nubio_guard ) {
-		if( !is_null( $nubio_guard->getFirstName() ) && !is_null( $nubio_guard->getLastName() ) ) {
-			$pretty_username = sprintf( '%s %s (%s)', $nubio_guard->getFirstName(), $nubio_guard->getLastName(), $nubio_guard->getUsername() );
+	//Only public so the tests can use this
+	static public function _parsePrettyUsername( $first, $last, $username ) {
+		if( empty( $first ) ) $first = null;
+		if( empty( $last ) ) $last = null;
+		if( empty( $username ) ) $username = null;
+		
+		if( !is_null( $first ) && !is_null( $last ) ) {
+			$pretty_username = sprintf( '%s %s (%s)', $first, $last, $username );
 		}
-		elseif( !is_null( $nubio_guard->getFirstName() ) ) {
-			$pretty_username = sprintf( '%s (%s)', $nubio_guard->getFirstName(), $nubio_guard->getUsername() );
+		elseif( !is_null( $first ) ) {
+			$pretty_username = sprintf( '%s (%s)', $first, $username );
 			
 		}
-		elseif( !is_null( $nubio_guard->getLastName() ) ) {
-			$pretty_username = sprintf( '%s (%s)', $nubio_guard->getLastName(), $nubio_guard->getUsername() );
+		elseif( !is_null( $last ) ) {
+			$pretty_username = sprintf( '%s (%s)', $last, $username );
 		}
 		else {
-			$pretty_username = $nubio_guard->getUsername();
+			$pretty_username = $username;
 		}
 		return $pretty_username;
 	}
 	
+	static public function parsePrettyUsername( $nubio_helper, $nubio_guard ) {
+		return self::_parsePrettyUsername( $nubio_guard->getFirstName(), $nubio_guard->getLastName(), $nubio_guard->getUsername() );
+	}
+	
 	public static function getRandTopicID() {
 		$q = Doctrine_Core::getTable('NubioTopic')->createQuery('q')->fetchArray();
-	  	return array_rand(array_keys($q));
+		
+	  	return array_rand(array_keys($q)) + 1;
 	}
   	
   	public static function getVerificationEmail( $params, $helper ) {
@@ -114,15 +124,36 @@ EOF
   	$ret = "<ul>";
   	
   	if( isset( $props['oldcategory_id'] ) ) {
-  		$ret .= "<li>Category ID changed from {$props['oldcategory_id']} to {$props['newcategory_id']}</li>";
+  		$ret .= "<li>Category ID changed from {$props['oldcategory_id']}";
+  		
+  		if( isset( $props['newcategory_id'] ) ) {
+  			$ret .= " to {$props['newcategory_id']}</li>";
+  		}
+  		else {
+  			$ret .= "</li>";
+  		}
   	}
   	
   	if( isset( $props['oldsummary'] ) ) {
-  		$ret .= "<li>Title changed from '{$props['oldsummary']}' to '{$props['newsummary']}'</li>";
+  		$ret .= "<li>Title changed from '{$props['oldsummary']}'";
+  		
+  		if( isset( $props['newsummary'] ) ) {
+  			$ret .= " to '{$props['newsummary']}'</li>";
+  		}
+  		else {
+  			$ret .= "</li>";
+  		}
   	}
   	
   	if( isset( $props['oldkeywords'] ) ) {
-  		$ret .= "<li>Keywords changed from '{$props['oldkeywords']}' to '{$props['newkeywords']}'</li>";
+  		$ret .= "<li>Keywords changed from '{$props['oldkeywords']}'";
+  		
+  		if( isset( $props['newkeywords'] ) ) {
+  			$ret .= " to '{$props['newkeywords']}'</li>";
+  		}
+  		else {
+  			$ret .= "</li>";
+  		}
   	}
   	
   	$ret .= "</ul>";

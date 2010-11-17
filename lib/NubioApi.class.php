@@ -4,6 +4,18 @@ class NubioApi
 {
 	
 	public static function apiPrint( $arr, sfWebRequest $request ) {
+		$formats = self::parseFormats( $request );
+
+	  	$printer = new $formats[$request->getParameter( 'format', 'xmlfm' )]( $request->getParameter( 'format' ) );
+		$printer->setUnescapeAmps ( /*$this->mAction == 'help' &&*/ $printer->getFormat() == 'XML' && $printer->getIsHtml() );
+		
+		$printer->initPrinter( false );
+		$printer->execute( array( 'query' => array( 'result' => self::clean_ElementVals( $arr, $formats[$request->getParameter( 'format', 'xmlfm' )] ) ) ), $request->getRequestParameters() );
+		$printer->closePrinter();
+		die();
+	}
+	
+	public static function parseFormats( $request ) {
 		$formats = array(
 	  		'xml' => 'NewApiFormatXml',
 	  		'xmlfm' => 'NewApiFormatXml',
@@ -18,28 +30,22 @@ class NubioApi
 	  	);
 	  	if( !isset( $formats[$request->getParameter( 'format', 'xmlfm' )] ) ) $formats[$request->getParameter( 'format', 'xmlfm' )] = $formats['xmlfm'];
 	  	
+	  	return $formats;
+	}
+	
+	//unset _element values on non XML formats
+	public static function clean_ElementVals( $arr, $format = 'NewApiFormatXml' ) {
+		if( $format == 'NewApiFormatXml' ) return $arr;
 	  	
-	  	//unset _element values on non XML formats
-	  	$func = function( $val ) use ( $formats, $request ) {
-	  		if( $formats[$request->getParameter( 'format', 'xmlfm' )] == 'NewApiFormatXml' ) return $val;
-	  		foreach( $val as $key => $value ) {
-	  			if( $key = '_element' ) {
-	  				unset( $val[$key] );
-	  			}
-	  			elseif( is_array( $value ) ) {
-	  				$val[$key] = $func($value);
-	  			}
+	  	foreach( $arr as $key => $value ) {
+	  		if( $key === '_element' ) {
+	  			unset( $arr[$key] );
 	  		}
-	  		return $val;
-	  	};
-	  	
-	  	$printer = new $formats[$request->getParameter( 'format', 'xmlfm' )]( $request->getParameter( 'format' ) );
-		$printer->setUnescapeAmps ( /*$this->mAction == 'help' &&*/ $printer->getFormat() == 'XML' && $printer->getIsHtml() );
-		
-		$printer->initPrinter( false );
-		$printer->execute( array( 'query' => array( 'result' => $func($arr) ) ), $request->getRequestParameters() );
-		$printer->closePrinter();
-		die();
+	  		elseif( is_array( $value ) ) {
+	  			$arr[$key] = self::clean_ElementVals($value, $format);
+	  		}
+	  	}
+	  	return $arr;
 	}
 	
 	public static function revisionList( $arr ) {
