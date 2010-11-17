@@ -12,7 +12,7 @@ class NubioApi
 		$printer->initPrinter( false );
 		$printer->execute( array( 'query' => array( 'result' => self::clean_ElementVals( $arr, $formats[$request->getParameter( 'format', 'xmlfm' )] ) ) ), $request->getRequestParameters() );
 		$printer->closePrinter();
-		die();
+		if( !$printer->getIsTest() ) die();
 	}
 	
 	public static function parseFormats( $request ) {

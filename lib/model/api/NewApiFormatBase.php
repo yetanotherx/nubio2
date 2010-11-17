@@ -30,7 +30,7 @@
  */
 abstract class NewApiFormatBase {
 
-	private $mIsHtml, $mFormat, $mUnescapeAmps, $mHelp, $mCleared;
+	private $mIsHtml, $mIsTest, $mFormat, $mUnescapeAmps, $mHelp, $mCleared;
 	private $mBufferResult = false, $mBuffer;
 
 	/**
@@ -49,6 +49,9 @@ abstract class NewApiFormatBase {
 			$this->mFormat = $format;
 		$this->mFormat = strtoupper( $this->mFormat );
 		$this->mCleared = false;
+		
+		$this->mIsTest = sfConfig::get( 'sf_environment' ) == 'test';
+
 	}
 
 	/**
@@ -96,6 +99,17 @@ abstract class NewApiFormatBase {
 	public function getIsHtml() {
 		return $this->mIsHtml;
 	}
+	
+	/**
+	 * getIsTest function.
+	 * Returns true if in the test environment
+	 * 
+	 * @access public
+	 * @return void
+	 */
+	public function getIsTest() {
+		return $this->mIsTest;
+	}
 
 	/**
 	 * Whether this formatter can format the help message in a nice way.
@@ -123,7 +137,7 @@ abstract class NewApiFormatBase {
 		if ( is_null( $mime ) )
 			return; // skip any initialization
 
-		header( "Content-Type: $mime; charset=utf-8" );
+		if( !$this->getIsTest() ) header( "Content-Type: $mime; charset=utf-8" );
 
 		if ( $isHtml ) {
 ?>
