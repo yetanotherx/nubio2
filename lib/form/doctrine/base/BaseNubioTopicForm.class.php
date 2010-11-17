@@ -30,7 +30,7 @@ abstract class BaseNubioTopicForm extends BaseFormDoctrine
       'id'          => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'summary'     => new sfValidatorString(array('max_length' => 255)),
       'keywords'    => new sfValidatorString(array('required' => false)),
-      'token'       => new sfValidatorString(array('max_length' => 255)),
+      'token'       => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'revision_id' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('NubioRevision'))),
       'category_id' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('NubioCategory'))),
       'is_deleted'  => new sfValidatorInteger(array('required' => false)),

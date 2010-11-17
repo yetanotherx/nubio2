@@ -16,7 +16,7 @@ $t->is(Nubio::slugify(' - '), 'n-a', '::slugify() converts a string that only co
 
 if (function_exists('iconv'))
 {
-  $t->is(Jobeet::slugify('Développeur Web'), 'developpeur-web', '::slugify() removes accents');
+  $t->is(Nubio::slugify('Développeur Web'), 'developpeur-web', '::slugify() removes accents');
 }
 else
 {

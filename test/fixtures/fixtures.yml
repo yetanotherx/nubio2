@@ -1,54 +1,74 @@
+<?php
+
+$revision = array(
+	array('rev_text'=>'Text1'),
+	array('rev_text'=>'Text2'),
+	array('rev_text'=>'Text3'),
+	array('rev_text'=>'Text4'),
+	array('rev_text'=>'Text5'),
+	array('rev_text'=>'Text6'),
+	array('rev_text'=>'Text7'),
+	array('rev_text'=>'Text8'),
+	array('rev_text'=>'Text9'),
+	array('rev_text'=>'Text10'),
+	array('rev_text'=>'Text11'),
+	array('rev_text'=>'Text12'),
+	array('rev_text'=>'Text13'),
+	array('rev_text'=>'Text14'),
+);
+
+$page = array(
+	array('page_title'=>'Article1','page_keywords'=>'keyword1'),
+	array('page_title'=>'Article2','page_keywords'=>'keyword12'),
+	array('page_title'=>'Article3','page_keywords'=>'keyword13'),
+	array('page_title'=>'Article4','page_keywords'=>'keyword14'),
+	array('page_title'=>'Article5','page_keywords'=>'keyword15'),
+	array('page_title'=>'Article6','page_keywords'=>'keyword16'),
+	array('page_title'=>'Article7','page_keywords'=>'keyword17'),
+	array('page_title'=>'Article8','page_keywords'=>'keyword18'),
+	array('page_title'=>'Article9','page_keywords'=>'keyword19'),
+	array('page_title'=>'Article10','page_keywords'=>'keyword100'),
+	array('page_title'=>'Article11','page_keywords'=>'keyword101'),
+	array('page_title'=>'Article12','page_keywords'=>'keyword102'),
+	array('page_title'=>'Article13','page_keywords'=>'keyword103'),
+	array('page_title'=>'Article14','page_keywords'=>'keyword104'),
+);
+
+?>
 NubioCategory:
   general:
     name: General
   wikitext:
     name: Wikitext
 
+sfGuardUser:
+  User_admin:
+    email_address:  nubio@toolserver.org
+    username:       admin
+    password:       password
+    is_super_admin: true
+   
 NubioHelper:
   admin:
-    name: Admin
-    wikiname: X!
-    email: void
-    pass: void
+    wikiname: Administrator
+    sfGuardUser: User_admin
     is_approved: 1
 
-NubioTopic:
-  firsttopic:
-    summary: Will Nubio Work?
-    keywords: test
-    token: topic1
-    revision_id: 1
-    category_id: 1
-  secondtopic:
-    summary: Will it work ever?
-    keywords: test
-    token: topic2
-    revision_id: 2
-    category_id: 2
-<?php for ($i = 3; $i <= 50; $i++): ?>
-  topic_<?php echo $i ?>:
-    summary: <?php echo rand( 0, 14858 ) . "\n" ?>
-    keywords: test
-    token: topic<?php echo $i."\n" ?>
-    revision_id: <?php echo $i."\n" ?>
-    category_id: 1
-<?php endfor ?>
-
 NubioRevision:
-  revision1:
-    helper_id: 1
-    topic_id: 1
-    text: Yes!
-    props: null switch this to null
-  revision2:
-    helper_id: 1
-    topic_id: 2
-    text: No!
-    props: null switch this to null
-<?php for ($i = 3; $i <= 50; $i++): ?>
-  revision<?php echo $i ?>:
-    helper_id: 1
-    topic_id: <?php echo $i . "\n" ?>
-    text: Text
-    props: null switch this to null
-<?php endfor ?>
+<?php foreach( $revision as $i => $rev ): ?>
+  revision<?php echo $i + 1 ?>:
+    NubioHelper: admin
+    topic_id: <?php echo $i + 1 . "\n" ?>
+    comment: add topic
+    text: "<?php echo str_replace( array( "\n", '"' ), array( '\n', '"' ), $rev['rev_text'] ) . "\"\n" ?>
+    props: a:0:{}
+<?php endforeach ?>
+
+NubioTopic:
+<?php foreach( $page as $i => $page ): ?>
+  topic<?php echo $i + 1 ?>:
+    summary: <?php echo $page['page_title'] . "\n" ?>
+    keywords: <?php echo $page['page_keywords'] . "\n" ?>
+    NubioRevision: revision<?php echo $i + 1 . "\n" ?>
+    NubioCategory: <?php echo ( ( $i == 13 ) ? 'wikitext' : 'general' ) . "\n" ; ?>
+<?php endforeach ?>

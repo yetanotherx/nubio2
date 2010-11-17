@@ -33,7 +33,7 @@ NubioTopic:
   columns:
     summary:       { type: string(255), notnull: true }
     keywords:      { type: blob() }
-    token:         { type: string(255), notnull: true }
+    token:         { type: string(255) }
     revision_id:   { type: integer(8), notnull: true }
     category_id:   { type: integer(8), notnull: true }
     is_deleted:    { type: integer(1), notnull: true, default: 0 }

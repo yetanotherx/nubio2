@@ -52,7 +52,6 @@ abstract class BaseNubioTopic extends sfDoctrineRecord
              ));
         $this->hasColumn('token', 'string', 255, array(
              'type' => 'string',
-             'notnull' => true,
              'length' => 255,
              ));
         $this->hasColumn('revision_id', 'integer', 8, array(

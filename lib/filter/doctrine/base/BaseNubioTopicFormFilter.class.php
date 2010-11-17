@@ -15,7 +15,7 @@ abstract class BaseNubioTopicFormFilter extends BaseFormFilterDoctrine
     $this->setWidgets(array(
       'summary'     => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'keywords'    => new sfWidgetFormFilterInput(),
-      'token'       => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'token'       => new sfWidgetFormFilterInput(),
       'revision_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('NubioRevision'), 'add_empty' => true)),
       'category_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('NubioCategory'), 'add_empty' => true)),
       'is_deleted'  => new sfWidgetFormFilterInput(array('with_empty' => false)),

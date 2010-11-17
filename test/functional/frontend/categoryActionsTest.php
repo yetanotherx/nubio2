@@ -5,7 +5,6 @@ include(dirname(__FILE__).'/../../bootstrap/functional.php');
 $browser = new NubioTestFunctional(new sfBrowser());
 $browser->loadData();
 
-
 $browser->
   get('/category/General')->
 
@@ -16,6 +15,7 @@ $browser->
 
   with('response')->begin()->
     isStatusCode(200)->
-    checkElement('body', '/Back to topic index/')->
+    checkElement('body', '/Back to homepage/')->
+    checkElement('body', '/13 topics in this category/')->
   end()
 ;
