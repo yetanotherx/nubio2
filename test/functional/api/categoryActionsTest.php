@@ -25,7 +25,9 @@ $cat_show_arr = array(
 		)
 	)
 );
-$browser = new sfTestFunctional(new sfBrowser());
+
+$browser = new NubioTestFunctional(new sfBrowser());
+$browser->loadData();
 
 $browser->
   get('/php/category/')->

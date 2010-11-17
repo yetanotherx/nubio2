@@ -2,10 +2,11 @@
 
 include(dirname(__FILE__).'/../../bootstrap/functional.php');
 
-$browser = new sfTestFunctional(new sfBrowser());
+$browser = new NubioTestFunctional(new sfBrowser());
+$browser->loadData();
 
 $browser->
-  get('/topic/index')->
+  get('/php/topic')->
 
   with('request')->begin()->
     isParameter('module', 'topic')->

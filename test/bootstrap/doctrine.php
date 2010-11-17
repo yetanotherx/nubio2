@@ -6,6 +6,8 @@ $configuration = ProjectConfiguration::getApplicationConfiguration( 'frontend', 
  
 new sfDatabaseManager($configuration);
 
-echo shell_exec( 'php ' . sfConfig::get('sf_root_dir') . '/symfony doctrine:build --all --no-confirmation --env=test' );
+echo "> Cleaning database...\n";
+shell_exec( 'php ' . sfConfig::get('sf_root_dir') . '/symfony doctrine:build --all --no-confirmation --env=test' );
+echo "> Done.\n";
 
 Doctrine_Core::loadData(sfConfig::get('sf_test_dir').'/fixtures');
