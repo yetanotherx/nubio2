@@ -6,7 +6,7 @@ slot( 'title', 'Topic List | Nubio' );
 slot( 'header', 'Welcome to Nubio!' );
 
 foreach( $category_pager->getResults() as $nubio_category) {
-	$nubio_topics = $nubio_category->getTopicsFromCategoryID( 
+	$nubio_topics = Doctrine_Core::getTable('NubioCategory')->getTopicsFromID( 
 		$nubio_category->getId(), 
 		sfConfig::get('app_max_topics_per_category_on_homepage') 
 	); 
@@ -19,7 +19,7 @@ foreach( $category_pager->getResults() as $nubio_category) {
 	
 	include_partial('topic/list', array( 'nubio_topics' => $nubio_topics, 'nubio_category' => $nubio_category ) );
 
-	$count = $nubio_category->getTopicCountFromCategoryID( $nubio_category->getId() ); 
+	$count = Doctrine_Core::getTable('NubioCategory')->getTopicCountFromID( $nubio_category->getId() ); 
 	if ( ( $count - sfConfig::get('app_max_topics_per_category_on_homepage') ) > 0 ) {
 		echo '<span class="more_topics">See ' . link_to($count, 'category_id', $nubio_category) . ' more...</span>';
 	}

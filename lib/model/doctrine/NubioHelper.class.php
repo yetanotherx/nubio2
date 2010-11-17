@@ -13,10 +13,10 @@
 class NubioHelper extends BaseNubioHelper
 {
 
-	public function getContributionListQueryFromID( $id ) {
+	public function getContributionListQueryFromID() {
     	return Doctrine_Core::getTable('NubioRevision')
 			->createBaseQuery()
-			->where( 'h.id = ?', $id );
+			->where( 'h.id = ?', $this->id );
     }
     
     public function createSave(Doctrine_Connection $conn = null, sfForm $form = null) {

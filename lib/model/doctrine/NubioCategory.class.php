@@ -12,23 +12,4 @@
  */
 class NubioCategory extends BaseNubioCategory
 {
-
-	public function getTopicsFromCategoryID( $cat_id, $limit = 10 ) {
-		$query = $this->getCategoryQueryFromID( $cat_id )
-			->limit($limit)
-			->execute();
-		return $query;
-	}
-	
-	public function getTopicCountFromCategoryID( $cat_id ) {
-		$query = $this->getCategoryQueryFromID( $cat_id )
-			->count();
-		return $query;
-	}
-	
-	public function getCategoryQueryFromID( $cat_id ) {
-		return Doctrine_Core::getTable('NubioTopic')
-			->createBaseQuery()
-			->where( 'c.id = ?', $cat_id );
-	}
 }
