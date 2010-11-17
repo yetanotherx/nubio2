@@ -63,7 +63,7 @@ class Nubio
 		else {
 			$text = html_entity_decode( str_replace( '<a href="/', '<a href="http://en.wikipedia.org/', $x['parse']['text']['*'] ) );
 			$text = trim( preg_replace('/<!--(.|\s)*?-->/', '', $text ) );
-			$text = substr( $text, 3, -4 ); //get rid of <p> tags
+			if( substr( $text, 0, 3 ) == '<p>' ) $text = substr( $text, 3, -4 ); //get rid of <p> tags
 		}
 		
 		if (sfConfig::get('sf_debug') && sfConfig::get('sf_logging_enabled')) $timer->addTime();
