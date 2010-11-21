@@ -29,6 +29,15 @@ userreg_validate:
   param: { module: userreg, action: confirm }
 
 #User action
+user_block_username:
+  url:      /user/block/:id
+  class:    sfDoctrineRoute
+  param:    { module: user, action: block }
+  options:  { model: NubioHelper, type: object, method_for_query: routingQuery }
+  requirements:
+    sf_method: [get]
+    id: \d+
+
 user_contribs_username:
   url:      /user/contribs/:id
   class:    sfDoctrineRoute

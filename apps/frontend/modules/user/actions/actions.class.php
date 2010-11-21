@@ -45,6 +45,16 @@ class userActions extends sfActions
     $this->nubio_helper = $this->getRoute()->getObject();
   }
   
+  public function executeBlock(sfWebRequest $request)
+  {
+    $this->forward404Unless($this->getUser()->isSuperAdmin());
+
+    $this->nubio_helper = $this->getRoute()->getObject();
+    
+    $this->nubio_helper->setIsBlocked(true);
+    $this->nubio_helper->save();
+  }
+  
   public function executeContribs(sfWebRequest $request)
   {
     $this->nubio_helper = $this->getRoute()->getObject();

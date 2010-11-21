@@ -54,6 +54,10 @@ slot( 'header', $header );
 if( $sf_user->isAuthenticated() && $nubio_guard->getId() == $sf_user->getGuardUser()->getId() ) {
 	echo '<li>' . link_to('Account settings', 'userreg/edit?id=' . $nubio_helper->getId()) . '</li>'; 
 }
+if( $sf_user->isSuperAdmin()) {
+	echo '<li>' . link_to('Block user', '@user_block_username?id=' . $nubio_helper->getId()) . '</li>';
+}
+
 echo '<li>' . link_to('User contributions', '@user_contribs_username?id=' . $nubio_helper->getId()) . '</li>';
 echo '<li>' . link_to('Back to the user list', '@user') . '</li>'; 
 echo '<li>' . link_to('Back to the homepage', '@homepage') . '</li>'; 

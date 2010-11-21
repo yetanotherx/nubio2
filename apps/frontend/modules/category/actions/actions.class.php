@@ -24,7 +24,7 @@ class categoryActions extends sfActions
 		sfConfig::get('app_max_topics_per_category_on_category')
 	);
 	
-	$this->category_pager->setQuery( $this->nubio_category->getCategoryQueryFromID( $this->nubio_category->getId() ) );
+	$this->category_pager->setQuery( Doctrine_Core::getTable('NubioCategory')->getCategoryQueryFromID( $this->nubio_category->getId() ) );
 	$this->category_pager->setPage( $request->getParameter( 'page', 1 ) );
 	$this->category_pager->init();
 

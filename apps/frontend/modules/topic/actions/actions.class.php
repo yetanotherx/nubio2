@@ -54,6 +54,12 @@ class topicActions extends sfActions
 
   public function executeNew(sfWebRequest $request)
   {
+  	
+  	if( 
+   		Doctrine_Core::getTable( 'NubioHelper' )->
+   		getFromDoctrineUID( $this->getUser()->getGuardUser()->getId() )->
+   		getIsBlocked() ) return 'Blocked';
+   	
     $this->form = new NubioTopicForm(
     	null, 
     	array(
@@ -65,6 +71,12 @@ class topicActions extends sfActions
 
   public function executeCreate(sfWebRequest $request)
   {
+  
+  	if( 
+   		Doctrine_Core::getTable( 'NubioHelper' )->
+   		getFromDoctrineUID( $this->getUser()->getGuardUser()->getId() )->
+   		getIsBlocked() ) return 'Blocked';
+   		
     $this->form = new NubioTopicForm(
     	null, 
     	array(
@@ -83,9 +95,16 @@ class topicActions extends sfActions
   	
   	$id = 0;
   	if( !$disabled ) $id = $this->getUser()->getGuardUser()->getId();
-   
+   	
+   	$this->nubio_topic = $this->getRoute()->getObject();
+   	
+   	if( 
+   		Doctrine_Core::getTable( 'NubioHelper' )->
+   		getFromDoctrineUID( $this->getUser()->getGuardUser()->getId() )->
+   		getIsBlocked() ) return 'Blocked';
+   		 
     $this->form = new NubioTopicForm(
-    	$this->getRoute()->getObject(), 
+    	$this->nubio_topic, 
     	array(
     		'userID' => $id,
     		'currentVals' => $this->getRoute()->getObject()->toArray(),
@@ -97,6 +116,12 @@ class topicActions extends sfActions
 
   public function executeUpdate(sfWebRequest $request)
   {
+  	
+  	if( 
+   		Doctrine_Core::getTable( 'NubioHelper' )->
+   		getFromDoctrineUID( $this->getUser()->getGuardUser()->getId() )->
+   		getIsBlocked() ) return 'Blocked';
+   		
   	$this->form = new NubioTopicForm(
     	$this->getRoute()->getObject(), 
     	array(
