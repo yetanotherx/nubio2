@@ -650,7 +650,7 @@ class AutoLoader {
 				return false;
 			}
 		}
-
+var_dump($IP);
 		# Make an absolute path, this improves performance by avoiding some stat calls
 		if ( substr( $filename, 0, 1 ) != '/' && substr( $filename, 1, 1 ) != ':' ) {
 			global $IP;

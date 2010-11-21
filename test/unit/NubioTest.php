@@ -275,3 +275,11 @@ $t->is(
 	'<ul><li>Category ID changed from 1</li></ul>', 
 	'::parseProps() fails safely without newcategory_id'
 );
+
+
+$t->info('5 - ::getTokenType()');
+$t->is(Nubio::getTokenType('n12585762756'), 'New', '::getTokenType() detects new tokens');
+$t->is(Nubio::getTokenType('r13448648634'), 'Reset', '::getTokenType() detects reset tokens');
+$t->is(Nubio::getTokenType('414857945893'), sfView::NONE, '::getTokenType() defalts to sfView::NONE');
+$t->is(Nubio::getTokenType(''), sfView::NONE, '::getTokenType() converts the empty string to sfView::NONE');
+

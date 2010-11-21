@@ -103,7 +103,7 @@ class userregActions extends sfActions
 		return 'Invalid';
 	}
 	
-	$type = self::getTokenType($token);
+	$type = Nubio::getTokenType($token);
 	
 	if ( !strlen( $token ) ) {
 		return 'Invalid';
@@ -151,23 +151,6 @@ class userregActions extends sfActions
         
         return 'After';
       }
-    }
-  }
-  
-  static private function getTokenType($validate)
-  {
-    $t = substr($validate, 0, 1);  
-    if ($t == 'n')
-    {
-      return 'New';
-    } 
-    elseif ($t == 'r')
-    {
-      return 'Reset';
-    }
-    else
-    {
-      return sfView::NONE;
     }
   }
 
@@ -231,7 +214,7 @@ class userregActions extends sfActions
     
     if (!$user->obtainReference('sfGuardUser')->getIsActive())
     {
-      $type = $this->getTokenType($user->getToken());
+      $type = Nubio::getTokenType($user->getToken());
       if ($type === 'New')
       {
         try 

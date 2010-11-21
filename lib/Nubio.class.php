@@ -161,4 +161,21 @@ EOF
   	return $ret;
   }
   
+  static public function getTokenType($validate)
+  {
+    $t = substr($validate, 0, 1);  
+    if ($t == 'n')
+    {
+      return 'New';
+    } 
+    elseif ($t == 'r')
+    {
+      return 'Reset';
+    }
+    else
+    {
+      return sfView::NONE;
+    }
+  }
+  
 }
