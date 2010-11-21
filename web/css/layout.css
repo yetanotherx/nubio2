@@ -164,3 +164,9 @@ table.topic_form tfoot td {
 	text-align: right;
 	border: 0;
 }
+#sf_admin_bar {
+	float: none;
+	clear: both;
+	word-break: break-all;
+	text-align: left;
+}
