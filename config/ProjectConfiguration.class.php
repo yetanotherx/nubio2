@@ -12,6 +12,7 @@ class ProjectConfiguration extends sfProjectConfiguration
     $this->enablePlugins('sfDoctrinePlugin');
     $this->enablePlugins('sfDoctrineGuardPlugin');
     $this->enablePlugins('sfDoctrineApplyPlugin');
+    $this->enablePlugins('omCrossAppUrlPlugin');
     
     $this->dispatcher->connect('debug.web.load_panels', array(
     	'acWebDebugPanelAPI',

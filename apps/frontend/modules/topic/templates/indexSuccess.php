@@ -1,6 +1,6 @@
 <?php 
 
-use_helper('Text');
+use_helper('Text' );
 
 slot( 'title', 'Topic List | Nubio' );
 slot( 'header', 'Welcome to Nubio!' );

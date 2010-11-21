@@ -2,6 +2,7 @@
 
 use_helper( 'Number' );
 use_helper( 'Text' );
+use_helper( 'crossAppLink' );
 
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
@@ -39,6 +40,7 @@ use_helper( 'Text' );
 							<li><?php echo link_to( 'Revisions', 'nubio_revision' ) ?></li>
 							<li><?php echo link_to( 'Categories', 'nubio_category' ) ?></li>
 							<li><?php echo link_to( 'Helpers', 'nubio_helper' ) ?></li>
+							<li><?php echo link_to( 'Back to main site', cross_app_url_for( 'frontend', '@homepage' ) ) ?></li>
 						</ul>
 	
 

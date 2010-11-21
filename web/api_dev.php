@@ -10,7 +10,7 @@ if ( !in_array( md5( (string) @$_SERVER['REMOTE_ADDR'] ), $allowed_ips ) ) {
   die('Hey! Get outta here! This area\'s private, dontchaknow!');
 }
 
-$IP = dirname(__FILE__) . '/api';
+$GLOBALS['IP'] = $IP = dirname(__FILE__) . '/api';
 require_once( "$IP/includes/ProfilerStub.php" );
 require_once( "$IP/includes/Defines.php" );
 require_once( "$IP/includes/DefaultSettings.php" );

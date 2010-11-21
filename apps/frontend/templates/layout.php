@@ -3,6 +3,7 @@
 use_helper( 'Number' );
 use_helper( 'I18N' );
 use_helper( 'Text' );
+use_helper( 'crossAppLink' ); //omCrossAppLink plugin
 
 use_javascript('jquery-1.4.3.min.js');
 use_javascript('search.js');
@@ -77,7 +78,7 @@ use_javascript('search.js');
 							<li><?php echo link_to( 'Random question', '@topic_random' ) ?></li>
 							<li><?php echo link_to( 'Recent Changes', '@revision' ) ?></li>
 							<li><?php echo link_to( 'User list', '@user' ) ?></li>
-							<li>API</li>
+							<li><?php echo link_to( 'API', cross_app_url_for( 'api', '@homepage' ) ) ?></li>
 							<?php 
 								if ($sf_user->isAuthenticated()) {
 									echo '<li>' . link_to('New topic', 'topic/new') . '</li>';
@@ -85,7 +86,7 @@ use_javascript('search.js');
 									echo '<li>' . link_to('My account', '@user_username?id=' . $sf_user->getGuardUser()->getId()) . '</li>';
 									//echo '<li>' . link_to('Users', 'sf_guard_user')  . '</li>';
 									if( $sf_user->isSuperAdmin()) {
-										echo '<li>Admin area</li>';
+										echo '<li>' . link_to( 'Admin area', cross_app_url_for( 'backend', '@homepage' ) ) . '</li>';
 										echo '<li>' . link_to('Unapproved users', '@user?onlyunapproved=true' ) . '</li>';
 									}
 								}
