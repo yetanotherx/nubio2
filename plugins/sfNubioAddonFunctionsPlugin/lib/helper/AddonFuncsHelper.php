@@ -117,6 +117,29 @@ if( !function_exists( 'append_number_suffix' ) ) {
 	
 
 }
+
+if( !function_exists( 'in_string' ) ) {
+	
+	/**
+	 * Returns whether or not a string is found in another
+	 * Shortcut for strpos()
+	 * 
+	 * @param string $needle What to search for
+	 * @param string $haystack What to search in
+	 * @param bool Whether or not to do a case-insensitive search
+	 * @return bool True if $needle is found in $haystack
+	 * @link http://us3.php.net/strpos
+	 */
+	function in_string( $needle, $haystack, $insensitive = false ) {
+		$fnc = 'strpos';
+		if( $insensitive ) $fnc = 'stripos';
+		
+		return $fnc( $haystack, $needle ) !== false; 
+	}
+
+
+}
+
 if( !function_exists( 'iin_array' ) ) {
 	
 	
@@ -138,28 +161,6 @@ if( !function_exists( 'iin_array' ) ) {
 		
 		return in_array_recursive( $strtoupper_safe( $needle ), array_map( $strtoupper_safe, $haystack ), $strict );
 	}
-
-
-}
-if( !function_exists( 'in_string' ) ) {
-	
-	/**
-	 * Returns whether or not a string is found in another
-	 * Shortcut for strpos()
-	 * 
-	 * @param string $needle What to search for
-	 * @param string $haystack What to search in
-	 * @param bool Whether or not to do a case-insensitive search
-	 * @return bool True if $needle is found in $haystack
-	 * @link http://us3.php.net/strpos
-	 */
-	function in_string( $needle, $haystack, $insensitive = false ) {
-		$fnc = 'strpos';
-		if( $insensitive ) $fnc = 'stripos';
-		
-		return $fnc( $haystack, $needle ) !== false; 
-	}
-
 
 }
 if( !function_exists( 'in_array_recursive' ) ) {
@@ -235,10 +236,13 @@ if( !function_exists( 'full_http_url' ) ) {
 	 * Returns the complete URL of the HTTP request
 	 * 
 	 * @access public
-	 * @return string
+	 * @return string|null
 	 */
 	function full_http_url() {
-		if( isset( $_SERVER['HTTP_HOST'] ) && isset( $_SERVER['REQUEST_URI'] ) ) return 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+		$prefix = 'http';
+		if( isset( $_SERVER['HTTPS'] ) ) $prefix = 'https';
+		if( isset( $_SERVER['HTTP_HOST'] ) ) return $prefix . '://' . $_SERVER['HTTP_HOST'] . @$_SERVER['REQUEST_URI'];
+		return null;
 	}
 
 }
@@ -261,59 +265,115 @@ if( !function_exists( 'parse_seconds' ) ) {
 		$day = $hour * 24;
 		$week = $day * 7;
 		$month = $day * ( 365 / 12 );
+		$year = $day * 365;
+		
+		$negative = false;
+		if( $secs < 0 ) $negative = true;
 		
 		$r = array();
-		if ($secs > $month) {
+		if( abs($secs) > $year) {
 			$count = 0;
-			for( $i = $month; $i <= $secs; $i += $month ) {
+			for( $i = $year; $i <= abs($secs); $i += $year ) {
 				$count++;
 			}
-		
-			$r['month'] = $count;
-			$secs -= $month * $count;
+			
+			if( $negative ) {
+				$r['year'] = 0 - $count;
+				$secs += $year * $count;
+			}
+			else {
+				$r['year'] = $count;
+				$secs -= $year * $count;
+			}
+			
 		}
 		
-		if ($secs > $week) {
+		if( abs($secs) > $month) {
 			$count = 0;
-			for( $i = $week; $i <= $secs; $i += $week ) {
+			for( $i = $month; $i <= abs($secs); $i += $month ) {
 				$count++;
 			}
-		
-			$r['week'] = $count;
-			$secs -= $week * $count;
+			
+			if( $negative ) {
+				$r['week'] = 0 - $count;
+				$secs += $week * $count;
+			}
+			else {
+				$r['week'] = $count;
+				$secs -= $week * $count;
+			}
+			
 		}
 		
-		if ($secs > $day) {
+		if( abs($secs) > $week) {
 			$count = 0;
-			for( $i = $day; $i <= $secs; $i += $day ) {
+			for( $i = $week; $i <= abs($secs); $i += $week ) {
 				$count++;
 			}
-		
-			$r['day'] = $count;
-			$secs -= $day * $count;
+			
+			if( $negative ) {
+				$r['week'] = 0 - $count;
+				$secs += $week * $count;
+			}
+			else {
+				$r['week'] = $count;
+				$secs -= $week * $count;
+			}
+			
 		}
 		
-		if ($secs > $hour) {
+		if( abs($secs) > $day) {
 			$count = 0;
-			for( $i = $hour; $i <= $secs; $i += $hour ) {
+			for( $i = $day; $i <= abs($secs); $i += $day ) {
 				$count++;
 			}
-		
-			$r['hour'] = $count;
-			$secs -= $hour * $count;
+			
+			if( $negative ) {
+				$r['day'] = 0 - $count;
+				$secs += $day * $count;
+			}
+			else {
+				$r['day'] = $count;
+				$secs -= $day * $count;
+			}
+			
 		}
 		
-		if ($secs > $minute) {
+		if( abs($secs) > $hour) {
 			$count = 0;
-			for( $i = $minute; $i <= $secs; $i += $minute ) {
+			for( $i = $hour; $i <= abs($secs); $i += $hour ) {
 				$count++;
 			}
-		
-			$r['minute'] = $count;
-			$secs -= $minute * $count;
+			
+			if( $negative ) {
+				$r['hour'] = 0 - $count;
+				$secs += $hour * $count;
+			}
+			else {
+				$r['hour'] = $count;
+				$secs -= $hour * $count;
+			}
+			
 		}
 		
-		if ($secs) {
+		if( abs($secs) > $minute) {
+			$count = 0;
+			for( $i = $minute; $i <= abs($secs); $i += $minute ) {
+				$count++;
+			}
+			
+			if( $negative ) {
+				$r['minute'] = 0 - $count;
+				$secs += $minute * $count;
+			}
+			else {
+				$r['minute'] = $count;
+				$secs -= $minute * $count;
+			}
+			
+		}
+		
+		if( $secs ) {
 			$r['second'] = $secs;
 		}
 		

@@ -19,7 +19,7 @@ $t->info( '2 - is_valid_email()' );
 
 $t->ok( is_valid_email( 'l3tt3rsAndNumb3rs@domain.com' ), 'l3tt3rsAndNumb3rs@domain.com passes' );
 $t->ok( is_valid_email( 'has-dash@domain.com' ), 'has-dash@domain.com passes' );
-$t->ok( is_valid_email( "hasApostrophe.o'leary@domain.org" ), "hasApostrophe.o'leary@domain.org passes" );
+$t->ok( is_valid_email( "hasApostrophe.o'leary@domain.org" ), "hasApostrophe.o'leary@domain.org passes" );
 $t->ok( is_valid_email( 'uncommonTLD@domain.museum' ), 'uncommonTLD@domain.museum passes' );
 $t->ok( is_valid_email( 'uncommonTLD@domain.travel' ), 'uncommonTLD@domain.travel passes' );
 $t->ok( is_valid_email( 'uncommonTLD@domain.mobi' ), 'uncommonTLD@domain.mobi passes' );
@@ -125,3 +125,80 @@ $t->is( append_number_suffix( null ), null, 'null -> null' );
 
 
 
+$t->info( '6 - in_string()' );
+
+$t->ok( in_string( 'foo', 'foobar' ), 'foo is in foobar' );
+$t->ok( !in_string( 'Bar', 'foobar' ), 'Case-sensitive by default' );
+$t->ok( in_string( 'Foo', 'foobar', true ), 'Case-insensitive when asked' );
+
+
+
+$t->info( '7 - rglob()' );
+
+$t->is( 
+	rglob( '*', 0, sfConfig::get('sf_plugins_dir') . '/sfNubioAddonFunctionsPlugin/lib/helper' ),
+	glob( sfConfig::get('sf_plugins_dir') . '/sfNubioAddonFunctionsPlugin/lib/helper/*' ),
+	'rglob() works as expected with no subdirectories' );
+
+$t->like( 
+	var_export( rglob( '*', 0, sfConfig::get('sf_plugins_dir') . '/sfNubioAddonFunctionsPlugin' ), true ),
+	'/sfNubioAddonFunctionsPlugin\/lib\/helper\/AddonFuncsHelper.php/',
+	'rglob() finds files in subdirectories' );
+	
+	
+	
+$t->info( '8 - swap_vars()' );
+
+$var1 = 1;
+$var2 = 2;
+
+$t->is( $var1, 1, 'var1 is set originally' );
+$t->is( $var2, 2, 'var1 is set originally' );
+
+swap_vars( $var1, $var2 );
+
+$t->is( $var1, 2, 'var1 is swapped' );
+$t->is( $var2, 1, 'var2 is swapped' );
+
+
+
+$t->info( '9 - full_http_url()' );
+
+$t->is( full_http_url(), null, 'Does not work when used in the CLI' );
+
+$_SERVER['HTTP_HOST'] = 'example.com';
+$t->is( full_http_url(), 'http://example.com', 'Works with just HTTP_HOST' );
+
+$_SERVER['HTTPS'] = 'true';
+$t->is( full_http_url(), 'https://example.com', 'Works with SSL' );
+
+
+$t->info( '10 - parse_seconds()' );
+
+$t->is( parse_seconds( 0 ), array( 'second' => '0' ), '0 seconds' );
+
+$t->comment( '  Negative values' );
+$t->is( parse_seconds( -1 ), array( 'second' => '-1' ), '-1 seconds' );
+$t->is( parse_seconds( -61 ), array( 'minute' => '-1', 'second' => '-1' ), '-61 seconds' );
+$t->is( parse_seconds( -12345 ), array( 'hour' => -3, 'minute' => -25, 'second' => -45 ), '-12345 seconds' );
+$t->is( parse_seconds( -123456789 ), array (
+  'year' => -3,
+  'week' => -37,
+  'day' => -4,
+  'hour' => -21,
+  'minute' => -33,
+  'second' => -9,
+), '-123456789 seconds' );
+
+$t->comment( '  Positive values' );
+$t->is( parse_seconds( 1 ), array( 'second' => '1' ), '1 seconds' );
+$t->is( parse_seconds( 61 ), array( 'minute' => '1', 'second' => '1' ), '61 seconds' );
+$t->is( parse_seconds( 12345 ), array( 'hour' => 3, 'minute' => 25, 'second' => 45 ), '12345 seconds' );
+$t->is( parse_seconds( 123456789 ), array (
+  'year' => 3,
+  'week' => 37,
+  'day' => 4,
+  'hour' => 21,
+  'minute' => 33,
+  'second' => 9,
+), '123456789 seconds' );
