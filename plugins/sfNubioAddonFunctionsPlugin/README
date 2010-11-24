@@ -1,0 +1,60 @@
+# sfNubioAddonFunctionsPlugin #
+
+The `sfNubioAddonFunctionsPlugin` is a symfony plugin that provides a 
+helper with various functions that assist in programming PHP code.
+
+These functions provide commonly used tasks that are often hacked together
+in every application, but would benefit from one centralized plugin. This
+plugin aims to do that.
+
+## Installation ##
+
+  * Install the plugin (via a package)
+
+        symfony plugin:install sfNubioAddonFunctionsPlugin
+
+  * Install the plugin (via a Subversion checkout)
+  
+        svn co http//svn.symfony-project.com/plugins/sfNubioAddonFunctionsPlugin/trunk plugins/sfNubioAddonFunctionsPlugin
+
+  * Activate the plugin in the `config/ProjectConfiguration.class.php`
+  
+        [php]
+        class ProjectConfiguration extends sfProjectConfiguration
+        {
+          public function setup()
+          {
+            $this->enablePlugins(array(
+              '...',
+              'sfNubioAddonFunctionsPlugin',
+              '...'
+            ));
+          }
+        }
+
+## Usage ##
+
+As with all helpers, you must use use_helper( 'AddonFuncs' ) in your template files.
+
+  * If the use_helper function does not exist:
+  
+        [php]
+        sfProjectConfiguration::getActive()->loadHelpers(array('AddonFuncs'));
+
+
+Now that the helper is called, you can use one of the functions in it.
+
+`sfNubioAddonFunctionsPlugin` has a number of included functions, the list is as follows.
+
+### is_ip_address ###
+
+`is_ip_address` checks if a given string is a valid IPv4 address.
+
+**This function only works for IPv4. In a future version, IPv6 may be supported.**
+
+  * Examples:
+  
+        [php]
+        is_ip_address( '127.0.0.1' ); //true
+        is_ip_address( '127.0.0' ); //false
+        is_ip_address( '500.0.0.1' ); //false

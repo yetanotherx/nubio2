@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" packagerversion="1.4.1" version="2.0" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
+  <name>sfNubioAddonFunctionsPlugin</name>
+  <channel>pear.symfony-project.com</channel>
+  <summary>Adds a helper with multiple functions that perform commonly used tasks.</summary>
+  <description>Adds a helper with multiple functions that perform commonly used tasks.</description>
+  <lead>    
+    <name>soxred93</name>
+    <user>soxred93</user>
+    <email>soxred93@gmail.com</email>
+    <active>yes</active>
+  </lead>
+  <date>2010-11-24</date>
+  <version>
+    <release>1.0.0</release>
+    <api>1.0.0</api>
+  </version>
+  <stability>
+    <release>stable</release>
+    <api>stable</api>
+  </stability>
+  <license uri="http://www.symfony-project.org/license">MIT license</license>
+  <notes>
+      * soxred93 - First release of plugin
+  </notes>
+  <contents>
+    <dir name="/">
+      <file role="data" name="README" />
+      <file role="data" name="LICENSE" />
+       
+      <dir name="lib">
+        <dir name="helper">
+          <file role="data" name="AddonFuncsHelper.php" />
+        </dir>
+      </dir>
+      
+      <dir name="test">
+        <dir name="unit">
+          <file role="data" name="AddonFuncsTest.php" />
+        </dir>
+      </dir>
+ 
+    </dir>
+  </contents>
+  <dependencies>
+    <required>
+      <php>
+        <min>5.2.4</min>
+      </php>
+      <pearinstaller>
+        <min>1.4.1</min>
+      </pearinstaller>
+      <package>
+        <name>symfony</name>
+        <channel>pear.symfony-project.com</channel>
+        <min>1.2.0</min>
+        <max>1.4.0</max>
+      </package>
+    </required>
+  </dependencies>
+  <phprelease/>
+  <changelog>
+  </changelog>
+</package>
