@@ -3,7 +3,7 @@
 require_once( dirname(__FILE__).'/../../../../test/bootstrap/unit.php' );
 require_once( sfConfig::get( 'sf_plugins_dir' ) . '/sfNubioAddonFunctionsPlugin/lib/helper/AddonFuncsHelper.php' );
 
-$t = new lime_test(117);
+$t = new lime_test(119);
 
 $t->info( '1 - is_ip_address()' );
 
@@ -257,3 +257,8 @@ $t->ok( is_odd( 15 ), '15 is odd' );
 $t->ok( !is_even( 15 ), '15 is not even' );
 $t->ok( is_odd( 15.2 ), '15.2 is odd' );
 $t->ok( !is_odd( 'Foobar' ), 'Foobar is not even a number' );
+
+$t->info( '20 - trim_extra_spaces()' );
+
+$t->is( trim_extra_spaces( 'this is normal' ), 'this is normal', 'Leaves most strings alone' );
+$t->is( trim_extra_spaces( 'But this has  an extra space' ), 'But this has an extra space', 'Replaces extra spaces' );

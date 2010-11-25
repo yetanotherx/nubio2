@@ -274,3 +274,13 @@ sfNubioAddonFunctionsPlugin includes various functions similar to array_*() func
         [php]
         is even( 6 ); //true
         is_even( 5 ); //false  
+
+
+### trim_extra_spaces ###
+
+`trim_extra_spaces` replaces two or more spaces in a string with a single space.
+
+  * Examples:
+  
+        [php]
+        trim_extra_spaces( 'foo      bar' ); //foo bar

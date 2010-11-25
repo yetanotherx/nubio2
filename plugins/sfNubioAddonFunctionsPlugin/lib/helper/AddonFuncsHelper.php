@@ -683,3 +683,17 @@ if( !function_exists( 'is_even' ) ) {
 		return !is_odd( $val ); 
 	}
 }
+
+if( !function_exists( 'trim_extra_spaces' ) ) {
+	
+	/**
+	 * Replaces 2 or more spaces in a string with a single space
+	 * 
+	 * @access public
+	 * @param string $string
+	 * @return string
+	 */
+	function trim_extra_spaces( $string ) {
+		return preg_replace( '/\s{2,}/', ' ', $string ); 
+	}
+}
