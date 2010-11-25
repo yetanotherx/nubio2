@@ -44,7 +44,7 @@ As with all helpers, you must use use_helper( 'AddonFuncs' ) in your template fi
 
 Now that the helper is called, you can use one of the functions in it.
 
-### is_ip_address ###
+#### is_ip_address ####
 
 `is_ip_address` checks if a given string is a valid IPv4 address.
 
@@ -57,7 +57,7 @@ Now that the helper is called, you can use one of the functions in it.
         is_ip_address( '127.0.0' ); //false
         is_ip_address( '500.0.0.1' ); //false
 
-### is_valid_email ###
+#### is_valid_email ####
 
 `is_valid_email` checks if an email address if formatted properly.
 
@@ -68,7 +68,7 @@ Now that the helper is called, you can use one of the functions in it.
         is_valid_email( 'two@@signs.com' ); //false
         is_valid_email( 'missingDomain@.com' ); //false
 
-### true_percentage ###
+#### true_percentage ####
 
 `true_percentage` returns true a certain percentage of the time.
 
@@ -78,7 +78,7 @@ Now that the helper is called, you can use one of the functions in it.
         true_percentage( 10 ); //10% of the time, this returns true. 90% of the time, it returns false
 
 
-### random_string ###
+#### random_string ####
 
 `random_string` generates a random string of characters. By default, it generates letters only. However, it can optionally include numbers and/or punctuation. The first parameter is length, the second is if numbers shoudl be included, and the third is if punctuation should be included.
 
@@ -89,7 +89,7 @@ Now that the helper is called, you can use one of the functions in it.
         random_string( 10, true ); //fJFjs49f4s, for example
         random_string( 10, true, true ); //fgu3$(vje), for example
 
-### append_number_suffix ###
+#### append_number_suffix ####
 
 `append_number_suffix` appends the proper cardinal suffix (st, nd, rd, or th) to a number (such as 1 -> 1st)
 
@@ -101,7 +101,7 @@ Now that the helper is called, you can use one of the functions in it.
         append_number_suffix( 132626 ); //132626th
 
 
-### in_string ###
+#### in_string ####
 
 `in_string` checks if an string is found in another string. First parameter is the string to search for, second is the string to search in, and third is whether or not to do it case-insensitively (default false).
 
@@ -113,7 +113,7 @@ Now that the helper is called, you can use one of the functions in it.
         in_string( 'foo', 'Foobar' ); //false
 
 
-### swap_vars ###
+#### swap_vars ####
 
 `swap_vars` switches the values of two given variables. 
 
@@ -125,7 +125,7 @@ Now that the helper is called, you can use one of the functions in it.
         swap_vars( $var1, $var2 ); //$var1 is now 2, and $var2 is now 1
         
 
-### full_http_url ###
+#### full_http_url ####
 
 `full_http_url` gets the complete HTTP URL of the request. 
 
@@ -135,7 +135,7 @@ Now that the helper is called, you can use one of the functions in it.
         full_http_url(); //http://example.com/somefile.php?param=value
         
 
-### parse_seconds ###
+#### parse_seconds ####
 
 `parse_seconds` converts a number of seconds into an array of year, month, week, day, hour, minute, and second values. 
 
@@ -147,7 +147,7 @@ Now that the helper is called, you can use one of the functions in it.
         parse_seconds( -123456789 ); //array ('year' => -3, 'week' => -37, 'day' => -4, 'hour' => -21, 'minute' => -33, 'second' => -9 )
 
 
-### pretty_backtrace ###
+#### pretty_backtrace ####
 
 `pretty_backtrace` generates a pretty-looking backtrace.
 
@@ -159,7 +159,7 @@ Now that the helper is called, you can use one of the functions in it.
         }
         
 
-### strpos_arr ###
+#### strpos_arr ####
 
 `strpos_arr` checks if an array of values is in a string. The first parameter is the string to search in, and the second parameter is the values to check. The return value is the first position of the first value in the array.
 
@@ -168,12 +168,12 @@ Now that the helper is called, you can use one of the functions in it.
         [php]
         strpos_arr( 'abcde', array( 'c', 'e' ) ); // 2
         
-### stripos_arr ###
+#### stripos_arr ####
 
 `strpos_arr` is the same as `strpos_arr1, except that it searches in a case-insensitive manner.
 
 
-### db_ip2long ###
+#### db_ip2long ####
 
 `db_ip2long` converts a 1.2.3.4-formatted IPv4 to an unsigned integer for entry into MySQL databases.
 
@@ -182,11 +182,11 @@ Now that the helper is called, you can use one of the functions in it.
         [php]
         db_ip2long( '255.255.255.210' ); //4294967250
      
-### Array-like functions for strings ###
+#### Array-like functions for strings ####
 
 sfNubioAddonFunctionsPlugin includes various functions similar to array_*() functions built into PHP.
 
-#### string_unshift ####
+### string_unshift ###
 
 `string_unshift` adds a character to the beginning of a string as many times as necessary to make it a certain length. The first parameter is a reference to the string, the second is the character to add, and the third is the maximum length of the string. This is similar to PHP's array_unshift() function.
 
@@ -195,7 +195,7 @@ sfNubioAddonFunctionsPlugin includes various functions similar to array_*() func
         [php]
         $str = 'abcd'; $ret = string_unshift( $str, 'e', 9 ); //$str ='eeeeeabcd'; $ret = 5; 
 
-#### string_shift ####
+### string_shift ###
 
 `string_shift` chops a certain character off the beginning of a string. If the character is repeated before another character is found, it will continue chopping until it comes to a different character. The first parameter is a reference to the string, the second is the character to remove. This is similar to PHP's array_shift() function.
 
@@ -205,7 +205,7 @@ sfNubioAddonFunctionsPlugin includes various functions similar to array_*() func
         $str = 'aaaaabcde'; $ret = string_shift( $str, 'a' ); //$str ='bcde'; $ret = 'aaaaa';
 
 
-#### string_push ####
+### string_push ###
 
 `string_push` adds a character to the end of a string as many times as necessary to make it a certain length. The first parameter is a reference to the string, the second is the character to add, and the third is the maximum length of the string. This is similar to PHP's array_push() function.
 
@@ -214,7 +214,7 @@ sfNubioAddonFunctionsPlugin includes various functions similar to array_*() func
         [php]
         $str = 'abcd'; $ret = string_push( $str, 'e', 9 ); //$str ='abcdeeeee'; $ret = 5; 
 
-#### string_pop ####
+### string_pop ###
 
 `string_pop` chops a certain character off the end of a string. If the character is repeated before another character is found, it will continue chopping until it comes to a different character. The first parameter is a reference to the string, the second is the character to remove. This is similar to PHP's array_pop() function.
 
@@ -223,7 +223,7 @@ sfNubioAddonFunctionsPlugin includes various functions similar to array_*() func
         [php]
         $str = 'abcdeeeee'; $ret = string_shift( $str, 'e' ); //$str ='abcd'; $ret = 'eeeee';
   
-#### string_map ####
+### string_map ###
 
 `string_map` applies a function to all the characters in a string. The first parameter is the callback function, and the second is the string. This is similar to PHP's array_map() function.
 
@@ -232,7 +232,7 @@ sfNubioAddonFunctionsPlugin includes various functions similar to array_*() func
         [php]
         string_map( 'strtoupper', $string ); //FOOBAR     
 
-### calc_cidr ###
+#### calc_cidr ####
 
 `calc_cidr` calculates the starting and ending IPs in a CIDR address. The first parameter is the base IP (the part before the /), and the second is the CIDR (the part after the /)
 
@@ -242,7 +242,7 @@ sfNubioAddonFunctionsPlugin includes various functions similar to array_*() func
         //Converting 127.0.0.1/16
         calc_cidr( '127.0.0.1', '16' ); //array( 'begin' => '127.0.0.0', 'end' => '127.0.255.255', 'count' => 65536 )
 
-### is_between ###
+#### is_between ####
 
 `is_between` determines whether or not a value is between two other values. The first parameter is the value to check, the second is the minimum value, the third is the maximum value, and the fourth is whether or not to use <= and >=, as opposed to just < and > (default true).
 
@@ -253,9 +253,9 @@ sfNubioAddonFunctionsPlugin includes various functions similar to array_*() func
         is_between( 5, 5, 7, false ); //false
         is_between( 5, 5, 7 ); //true
 
-### Odd/Even checkers ###
+#### Odd/Even checkers ####
 
-#### is_odd ####
+### is_odd ###
 
 `is_odd` determines whether or not a number is odd.
 
@@ -265,7 +265,7 @@ sfNubioAddonFunctionsPlugin includes various functions similar to array_*() func
         is_odd( 5 ); //true
         is_odd( 6 ); //false       
 
-#### is_even ####
+### is_even ###
 
 `is_even` determines whether or not a number is even.
 
@@ -276,7 +276,7 @@ sfNubioAddonFunctionsPlugin includes various functions similar to array_*() func
         is_even( 5 ); //false  
 
 
-### trim_extra_spaces ###
+#### trim_extra_spaces ####
 
 `trim_extra_spaces` replaces two or more spaces in a string with a single space.
 

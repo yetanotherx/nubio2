@@ -24,6 +24,7 @@
 	<notes>
 * soxred93 - Add functions
 * soxred93 - Fix SVN structure
+* soxred93 - Make README more organized in HTML
 	</notes>
 
 	<contents>
@@ -128,6 +129,7 @@
 			<notes>
 * soxred93 - Add functions
 * soxred93 - Fix SVN structure
+* soxred93 - Make README more organized in HTML
 			</notes>
 		</release>
 	</changelog>
