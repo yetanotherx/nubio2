@@ -21,6 +21,7 @@ class ProjectConfiguration extends sfProjectConfiguration
   	));
   	
   	PrivateConfiguration::setup();
+    $this->enablePlugins('sfTaskExtraPlugin');
   }
   
   static protected $zendLoaded = false;
