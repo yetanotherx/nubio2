@@ -3,7 +3,7 @@
 require_once( dirname(__FILE__).'/../../../../test/bootstrap/unit.php' );
 require_once( sfConfig::get( 'sf_plugins_dir' ) . '/sfNubioAddonFunctionsPlugin/lib/helper/AddonFuncsHelper.php' );
 
-$t = new lime_test();
+$t = new lime_test(117);
 
 $t->info( '1 - is_ip_address()' );
 
@@ -131,23 +131,8 @@ $t->ok( in_string( 'foo', 'foobar' ), 'foo is in foobar' );
 $t->ok( !in_string( 'Bar', 'foobar' ), 'Case-sensitive by default' );
 $t->ok( in_string( 'Foo', 'foobar', true ), 'Case-insensitive when asked' );
 
-
-
-$t->info( '7 - rglob()' );
-
-$t->is( 
-	rglob( '*', 0, sfConfig::get('sf_plugins_dir') . '/sfNubioAddonFunctionsPlugin/lib/helper' ),
-	glob( sfConfig::get('sf_plugins_dir') . '/sfNubioAddonFunctionsPlugin/lib/helper/*' ),
-	'rglob() works as expected with no subdirectories' );
-
-$t->like( 
-	var_export( rglob( '*', 0, sfConfig::get('sf_plugins_dir') . '/sfNubioAddonFunctionsPlugin' ), true ),
-	'/sfNubioAddonFunctionsPlugin\/lib\/helper\/AddonFuncsHelper.php/',
-	'rglob() finds files in subdirectories' );
 	
-	
-	
-$t->info( '8 - swap_vars()' );
+$t->info( '7 - swap_vars()' );
 
 $var1 = 1;
 $var2 = 2;
@@ -162,7 +147,7 @@ $t->is( $var2, 1, 'var2 is swapped' );
 
 
 
-$t->info( '9 - full_http_url()' );
+$t->info( '8 - full_http_url()' );
 
 $t->is( full_http_url(), null, 'Does not work when used in the CLI' );
 
@@ -173,7 +158,7 @@ $_SERVER['HTTPS'] = 'true';
 $t->is( full_http_url(), 'https://example.com', 'Works with SSL' );
 
 
-$t->info( '10 - parse_seconds()' );
+$t->info( '9 - parse_seconds()' );
 
 $t->is( parse_seconds( 0 ), array( 'second' => '0' ), '0 seconds' );
 
@@ -202,3 +187,73 @@ $t->is( parse_seconds( 123456789 ), array (
   'minute' => 33,
   'second' => 9,
 ), '123456789 seconds' );
+
+$t->info( '10 - pretty_backtrace()' );
+
+$t->comment( '  No tests available, no way to test this' );
+
+
+
+$t->info( '11 - strpos_arr()' );
+
+$t->is( strpos_arr( 'this has the first letter of the letter system we use in it', array( 'a', 'b' ) ), 6, 'uses the first character\'s position' );
+$t->is( strpos_arr( 'but this has the second letter of the letter system we use first', array( 'a', 'b' ) ), 10, 'still uses the first character\'s position' );
+$t->is( strpos_arr( 'this doesn\'t include either letter', array( 'a', 'b' ) ), false, 'detects no matches' );
+$t->is( @strpos_arr( 'this should fail', array( array( 'a' ), 'b' ) ), false, 'fails on subarrays as it should' );
+
+$t->info( '12 - stripos_arr()' );
+
+$t->is( stripos_arr( 'this has the first letter of the letter system we use in it', array( 'A', 'b' ) ), 6, 'uses the first character\'s position' );
+
+
+$t->info( '13 - db_ip2long()' );
+
+$t->is( db_ip2long( '255.255.255.210' ), '4294967250', 'is actually unsigned' );
+
+
+$t->info( '14 - string_[un]shift()' );
+
+$string = 'Foobar';
+$t->is( string_unshift( $string, 't', 25 ), 19, 'unshift() returns the number of added characters' );
+$t->is( strlen($string), 25, 'unshift() correctly prepends characters to the string reference #1' );
+$t->is( $string, 'tttttttttttttttttttFoobar', 'unshift() correctly prepends characters to the string reference #2' );
+$t->is( string_shift( $string, 't', 25 ), 'ttttttttttttttttttt', 'shift() returns the removed string' );
+$t->is( strlen($string), 6, 'shift() correctly removes characters from the string reference #1' );
+$t->is( $string, 'Foobar', 'shift() correctly removes characters from the string reference #2' );
+
+$t->info( '15 - string_[pop|push]()' );
+
+$string = 'Foobar';
+$t->is( string_push( $string, 't', 25 ), 19, 'push() returns the number of added characters' );
+$t->is( strlen($string), 25, 'push() correctly appends characters to the string reference #1' );
+$t->is( $string, 'Foobarttttttttttttttttttt', 'push() correctly appends characters to the string reference #2' );
+$t->is( string_pop( $string, 't', 25 ), 'ttttttttttttttttttt', 'pop() returns the removed string' );
+$t->is( strlen($string), 6, 'pop() correctly removes characters from the string reference #1' );
+$t->is( $string, 'Foobar', 'pop() correctly removes characters from the string reference #2' );
+
+
+
+$t->info( '16 - string_map()' );
+
+$t->is( string_map( 'strtoupper', $string ), 'FOOBAR', 'string_map works with built-in functions' );
+
+
+$t->info( '17 - calc_cidr()' );
+
+$t->is( calc_cidr( '127.0.0.1', '16' ), array( 'begin' => '127.0.0.0', 'end' => '127.0.255.255', 'count' => 65536 ), 'calc_cidr() works normally' );
+$t->ok( !calc_cidr( '127.0.0.1', '33' ), 'calc_cidr() fails with a bad CIDR' );
+$t->ok( !calc_cidr( '127.', '16' ), 'calc_cidr() fails with a bad IP' );
+
+$t->info( '18 - is_between()' );
+
+$t->ok( is_between( 5, 3, 7 ), '5 is between 3 and 7' );
+$t->ok( !is_between( 5, 5, 7, false ), '5 is not greater than 5' );
+$t->ok( is_between( 5, 5, 7 ), 'But 5 IS greater than 5 when using <=' );
+
+
+$t->info( '19 - is_[odd|even]()' );
+
+$t->ok( is_odd( 15 ), '15 is odd' );
+$t->ok( !is_even( 15 ), '15 is not even' );
+$t->ok( is_odd( 15.2 ), '15.2 is odd' );
+$t->ok( !is_odd( 'Foobar' ), 'Foobar is not even a number' );

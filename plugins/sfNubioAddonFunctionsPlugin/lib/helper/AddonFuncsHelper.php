@@ -190,28 +190,6 @@ if( !function_exists( 'in_array_recursive' ) ) {
 
 }
 
-if( !function_exists( 'rglob' ) ) {
-	
-	/**
-	 * Recursive glob() function.
-	 * 
-	 * @access public
-	 * @param string $pattern. (default: '*')
-	 * @param int $flags. (default: 0)
-	 * @param string $path. (default: '')
-	 * @return void
-	 */
-	function rglob( $pattern = '*', $flags = 0, $path = '' ) {
-	    $paths = glob( $path . '*', GLOB_MARK|GLOB_ONLYDIR|GLOB_NOSORT );
-	    $files = glob( $path . $pattern, $flags );
-	    
-	    foreach ($paths as $path) $files = array_merge( $files, rglob( $pattern, $flags, $path ) );
-	    
-	    return $files;
-	}
-
-}
-
 if( !function_exists( 'swap_vars' ) ) {
 	
 	/**
@@ -380,4 +358,328 @@ if( !function_exists( 'parse_seconds' ) ) {
 		return $r;
 	}
 	
+}
+
+if( !function_exists( 'pretty_backtrace' ) ) {
+	
+	/**
+	 * Generates a "pretty" backtrace.
+	 * 
+	 * @access public
+	 * @param bool $print True to print to STDOUT, false to return the value (default: true)
+	 * @return string|void
+	 */
+	function pretty_backtrace( $print = true ) {
+		$debug = debug_backtrace();
+		
+		$ret = null;
+		foreach( $debug as $call ) {
+			$ret .= "{$call['function']}() -> " . realpath( $call['file'] ) . ':' . $call['line'] . ";\n";
+		}
+		
+		if( $print ) {
+			echo $ret;
+		}
+		else {
+			return $ret;
+		}
+	}
+}
+
+if( !function_exists( 'strpos_arr' ) ) {
+	
+	/**
+	 * Checks if an array of values is in a string
+	 *
+	 * Example: strpos_arr( 'abcde', array( 'c', 'e' ) ) == 2
+	 * 
+	 * @access public
+	 * @param string $haystack String to search
+	 * @param mixed $needle
+	 * @param bool $insensitive Case-insensitive. Can also be done using stripos_arr (default: false)
+	 * @return int|bool
+	 */
+	function strpos_arr( $haystack, $needle, $insensitive = false ) {
+		
+		$func = 'strpos';
+		if( $insensitive ) $func = 'stripos';
+		
+		foreach( (array) $needle as $sub_needle ) {
+			$position = $func( $haystack, $sub_needle );
+			if( $pos !== FALSE ) return $position;
+		}
+		
+		return false;
+	}
+}
+
+if( !function_exists( 'stripos_arr' ) ) {
+	
+	/**
+	 * Case-insensitive strpos_arr function.
+	 * 
+	 * @access public
+	 * @param string $haystack 
+	 * @param mixed $needle
+	 * @return int|bool
+	 */
+	function stripos_arr( $haystack, $needle ) {
+		return strpos_arr( $haystack, $needle, true );
+	}
+}
+
+if( !function_exists( 'db_ip2long' ) ) {
+	
+	/**
+	 * Converts a 1.2.3.4-formatted IPv4 to an unsigned int for entry into MySQL databases.
+	 * 
+	 * @access public
+	 * @param string $ip
+	 * @return string
+	 */
+	function db_ip2long( $ip ) {
+		return sprintf( "%u", ip2long( $ip ) ); 
+	}
+}
+
+if( !function_exists( 'string_unshift' ) ) {
+	
+	/**
+	 * Adds $character to the beginning of a string to make it $max_length characters
+	 *
+	 * Example: $str = 'abcd'; $ret = string_unshift( $str, 'e', 9 );
+	 * This makes $str equal to 'eeeeeabcd', and $ret equal to 5; 
+	 * 
+	 * @access public
+	 * @param string &$string String to modify
+	 * @param string $character Charater to add
+	 * @param int $max_length Maximum length of string
+	 * @return int Number of characters added
+	 */
+	function string_unshift( &$string, $character, $max_length ) {
+		
+		$count = $max_length - strlen( $string );	
+		
+		for( $i = $count; $i > 0; $i-- ) {
+			$string = $character . $string;
+		}
+		
+		return $count;
+	}
+}
+
+if( !function_exists( 'string_shift' ) ) {
+	
+	/**
+	 * Chops $character off the beginning of a string
+	 *
+	 * Example: $str = 'aaaaabcde'; $ret = string_shift( $str, 'a' );
+	 * This makes $str equal to 'bcde', and $ret equal to 'aaaaa'; 
+	 * 
+	 * @access public
+	 * @param mixed &$string String to chop
+	 * @param mixed $character Charater to remove
+	 * @return string
+	 */
+	function string_shift( &$string, $character ) {
+		
+		$string = str_split( $string, 1 );
+		$ret_val = null;
+		
+		foreach( $string as $val => $strchar ) {
+			if( $strchar != $character ) break;
+			
+			$ret_val .= $string[$val];
+			
+			unset( $string[$val] );
+		}
+		
+		$string = implode( "", $string );
+		
+		return $ret_val;
+		
+	}
+}
+
+
+if( !function_exists( 'string_push' ) ) {
+	
+	/**
+	 * Adds $character to the end of a string to make it $max_length characters
+	 *
+	 * Example: $str = 'abcd'; $ret = string_push( $str, 'e', 9 );
+	 * This makes $str equal to 'abcdeeeee', and $ret equal to 5; 
+	 * 
+	 * @access public
+	 * @param string &$string String to modify
+	 * @param string $character Charater to add
+	 * @param int $max_length Maximum length of string
+	 * @return int Number of characters added
+	 */
+	function string_push( &$string, $character, $max_length ) {
+		
+		$count = $max_length - strlen( $string );	
+		
+		for( $i = $count; $i > 0; $i-- ) {
+			$string = $string . $character;
+		}
+		
+		return $count;
+	}
+}
+
+if( !function_exists( 'string_pop' ) ) {
+
+	/**
+	 * Chops $character off the end of a string
+	 *
+	 * Example: $str = 'abcdeeeee'; $ret = string_pop( $str, 'e' );
+	 * This makes $str equal to 'abcd', and $ret equal to 'eeeee'; 
+	 * 
+	 * @access public
+	 * @param mixed &$string String to chop
+	 * @param mixed $character Charater to remove
+	 * @return string
+	 */
+	function string_pop( &$string, $character ) {
+		
+		$string = str_split( $string, 1 );
+		$ret_val = null;
+		
+		foreach( array_reverse( $string, true ) as $val => $strchar ) {
+			if( $strchar != $character ) break;
+			
+			$ret_val .= $string[$val];
+			
+			unset( $string[$val] );
+		}
+		
+		$string = implode( "", $string );
+		
+		return strrev( $ret_val );
+		
+	}
+}
+
+if( !function_exists( 'string_map' ) ) {
+
+	/**
+	 * Similar to array_map, applies a function to all the characters in a string
+	 * 
+	 * @access public
+	 * @param callback $callback
+	 * @param string $string
+	 * @return string
+	 */
+	function string_map( $callback, $string ) {
+		
+		$string = str_split( $string, 1 );
+		
+		$string = array_map( $callback, $string );
+		
+		$string = implode( "", $string );
+		
+		return $string;
+		
+	}
+}
+
+if( !function_exists( 'calc_cidr' ) ) {
+	
+	/**
+	 * Calculate starting and ending IPs in a CIDR IP
+	 * 
+	 * @access public
+	 * @param string $start_ip IP in the first part of the cidr (for example, 1.2.3.4 in 1.2.3.4/5)
+	 * @param int $cidr CIDR in the second part of the cidr (for example, 5 in 1.2.3.4/5)
+	 * @return array
+	 */
+	function calc_cidr( $start_ip, $cidr ) {
+		
+		if( !is_between( $cidr, 0, 32 ) ) return false;
+		if( !is_ip_address( $start_ip ) ) return false;
+		$cidr_base_bin = explode( '.', $start_ip );
+		
+		foreach( $cidr_base_bin as &$val ) {
+			$val = decbin( $val );
+			string_unshift( $val, '0', 8 );
+		}
+		
+		$cidr_shortened = substr( implode( '', $cidr_base_bin ), 0, $cidr );
+		$cidr_difference = 32 - $cidr;
+	
+		$cidr_begin = $cidr_shortened . str_repeat( '0', $cidr_difference );
+		$cidr_end = $cidr_shortened . str_repeat( '1', $cidr_difference );
+		
+		string_shift( $cidr_begin, '0' );
+		string_shift( $cidr_end, '0' );
+		
+		$ip_begin = long2ip( bindec( $cidr_begin ) );
+		$ip_end = long2ip( bindec( $cidr_end ) );
+		$ip_count = bindec( $cidr_end ) - bindec( $cidr_begin ) + 1;
+		
+		return array( 'begin' => $ip_begin, 'end' => $ip_end, 'count' => $ip_count );
+
+	}
+}
+
+if( !function_exists( 'is_between' ) ) {	
+	
+	/**
+	 * Returns true if a value is between 2 other values
+	 * 
+	 * @access public
+	 * @param mixed $needle Value to check
+	 * @param mixed $haystack1 Minimum value
+	 * @param mixed $haystack2 Maximum value
+	 * @param bool $include Whether or not to use <= and >=, instead of just < and > (default: true)
+	 * @return bool
+	 */
+	function is_between( $needle, $haystack1, $haystack2, $include = true ) {
+		$operator1 = '>';
+		$operator2 = '<';
+		
+		if( $include ) {
+			$operator1 .= '=';
+			$operator2 .= '=';
+		}
+		
+		$php1 = sprintf("\$result1 = \$needle $operator1 \$haystack1;");
+		$php2 = sprintf("\$result2 = \$needle $operator2 \$haystack2;");
+    	eval($php1);
+		eval($php2);
+		
+		return (bool) ( $result1 && $result2 );
+	}
+
+}
+
+
+if( !function_exists( 'is_odd' ) ) {
+	
+	/**
+	 * Returns true if a number is odd.
+	 * 
+	 * @access public
+	 * @param int|float $val
+	 * @return bool
+	 */
+	 function is_odd( $val ) {
+		if( !is_numeric( $val ) ) return false; 
+		return ( $val % 2 ); 
+	}
+}
+
+if( !function_exists( 'is_even' ) ) {
+	
+	/**
+	 * Returns true if a number is even.
+	 * 
+	 * @access public
+	 * @param int|float $val
+	 * @return bool
+	 */
+	function is_even( $val ) {
+		return !is_odd( $val ); 
+	}
 }
