@@ -15,7 +15,7 @@ plugin aims to do that.
 
   * Install the plugin (via a Subversion checkout)
   
-        svn co http://svn.symfony-project.com/plugins/sfNubioAddonFunctionsPlugin plugins/sfNubioAddonFunctionsPlugin
+        svn co http://svn.symfony-project.com/plugins/sfNubioAddonFunctionsPlugin/trunk plugins/sfNubioAddonFunctionsPlugin
 
   * Activate the plugin in the `config/ProjectConfiguration.class.php`
   
