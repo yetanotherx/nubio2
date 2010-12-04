@@ -11,10 +11,10 @@
 		<active>yes</active>
 	</lead>
 	
-	<date>2010-11-25</date>
+	<date>2010-12-01</date>
 	<version>
-		<release>1.0.3</release>
-		<api>1.0.3</api>
+		<release>1.0.4</release>
+		<api>1.0.4</api>
 	</version>
 	<stability>
 		<release>stable</release>
@@ -22,9 +22,8 @@
 	</stability>
 	<license uri="http://www.symfony-project.org/license">MIT license</license>
 	<notes>
-* soxred93 - Add functions
-* soxred93 - Fix SVN structure
-* soxred93 - Make README more organized in HTML
+* soxred93 - Add add_include_path() function
+* soxred93 - Add svn_info() function
 	</notes>
 
 	<contents>
@@ -112,6 +111,24 @@
 			<license uri="http://www.symfony-project.org/license">MIT license</license>
 			<notes>
 * soxred93 - Complete README
+			</notes>
+		</release>
+		
+		<release>
+			<date>2010-11-25</date>
+			<version>
+				<release>1.0.3</release>
+				<api>1.0.3</api>
+			</version>
+			<stability>
+				<release>stable</release>
+				<api>stable</api>
+			</stability>
+			<license uri="http://www.symfony-project.org/license">MIT license</license>
+			<notes>
+* soxred93 - Add functions
+* soxred93 - Fix SVN structure
+* soxred93 - Make README more organized in HTML
 			</notes>
 		</release>
 		

@@ -3,7 +3,7 @@
 require_once( dirname(__FILE__).'/../../../../test/bootstrap/unit.php' );
 require_once( sfConfig::get( 'sf_plugins_dir' ) . '/sfNubioAddonFunctionsPlugin/lib/helper/AddonFuncsHelper.php' );
 
-$t = new lime_test(119);
+$t = new lime_test(120);
 
 $t->info( '1 - is_ip_address()' );
 
@@ -262,3 +262,14 @@ $t->info( '20 - trim_extra_spaces()' );
 
 $t->is( trim_extra_spaces( 'this is normal' ), 'this is normal', 'Leaves most strings alone' );
 $t->is( trim_extra_spaces( 'But this has  an extra space' ), 'But this has an extra space', 'Replaces extra spaces' );
+
+$t->info( '21 - add_include_path()' );
+
+$old_path = get_include_path();
+add_include_path( sys_get_temp_dir() );
+
+$t->is( get_include_path(), sys_get_temp_dir() . PATH_SEPARATOR . $old_path , 'Correctly sets include path' );
+
+$t->info( '22 - svn_info()' );
+
+$t->comment( '  No tests available, no way to test this' );

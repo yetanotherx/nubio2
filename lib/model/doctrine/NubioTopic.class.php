@@ -19,6 +19,13 @@ class NubioTopic extends BaseNubioTopic
 			->where( 'r.topic_id = ?', $id );
     }
     
+    public function getCategory() {
+    	return Doctrine_Core::getTable( 'NubioCategory' )->
+    		createQuery( 'c' )->
+    		where( 'c.id = ?', $this->category_id )->
+    		fetchOne();
+    }
+    
 	public function revisionSaveInternal(Doctrine_Connection $conn = null, sfForm $form = null) {
 		$params = $form->getTaintedValues();
 		$oldparams = $form->GetOption('currentVals');

@@ -14,8 +14,16 @@ generator:
     config:
       actions: ~
       fields:  ~
-      list:    ~
+      list:
+        title: Topic management
+        display: [=id, =summary, revision_id, category]
+        max_per_page: 10
       filter:  ~
-      form:    ~
-      edit:    ~
-      new:     ~
+      form:
+        display:
+          Content: [summary, answer, keywords, comment]
+          Admin:   [is_deleted]
+      edit:
+        title: Editing topic #%%id%%
+      new:
+        title: New topic

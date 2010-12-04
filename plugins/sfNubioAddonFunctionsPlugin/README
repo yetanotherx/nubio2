@@ -284,3 +284,21 @@ sfNubioAddonFunctionsPlugin includes various functions similar to array_*() func
   
         [php]
         trim_extra_spaces( 'foo      bar' ); //foo bar
+
+#### add_include_path ####
+
+`add_include_path` adds a directory to the include path. 
+
+  * Examples:
+  
+        [php]
+        add_include_path( '/path/to/directory/' );
+
+#### svn_info ####
+
+`svn_info` gets information about a Subversion repository. 
+
+  * Examples:
+  
+        [php]
+        svn_info( '/path/to/.svn' );

@@ -697,3 +697,55 @@ if( !function_exists( 'trim_extra_spaces' ) ) {
 		return preg_replace( '/\s{2,}/', ' ', $string ); 
 	}
 }
+
+if( !function_exists( 'add_include_path' ) ) {
+
+	function add_include_path( $path ) {
+		set_include_path( $path . PATH_SEPARATOR . get_include_path() );
+	}
+	
+}
+
+if( !function_exists( 'svn_info' ) ) {
+	
+	/**
+	 * Get info about a SVN repo
+	 * 
+	 * @access public
+	 * @param mixed $path Path to svn directory, e.g. /path/to/.svn
+	 * @return array
+	 */
+	function svn_info( $path ) {
+		
+		// http://svnbook.red-bean.com/nightly/en/svn.developer.insidewc.html
+		$entries = $path . '/entries';
+
+		if( !file_exists( $entries ) ) {
+			return false;
+		}
+
+		$lines = file( $entries );
+		if ( !count( $lines ) ) {
+			return false;
+		}
+
+		// check if file is xml (subversion release <= 1.3) or not (subversion release = 1.4)
+		if( preg_match( '/^<\?xml/', $lines[0] ) ) {			
+			return false;
+		}
+
+		// Subversion is release 1.4 or above.
+		if ( count( $lines ) < 11 ) {
+			return false;
+		}
+		
+		$info = array(
+			'checkout-rev' => intval( trim( $lines[3] ) ),
+			'url' => trim( $lines[4] ),
+			'repo-url' => trim( $lines[5] ),
+			'directory-rev' => intval( trim( $lines[10] ) )
+		);
+		
+		return $info;
+	}
+}
